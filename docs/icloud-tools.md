@@ -1,85 +1,74 @@
 # iCloud Tools
 
-CloudUnhideWatcher bundles two maintenance scripts inside the app:
+CloudUnhideWatcher bundles the **iCloud Conflict Toolkit** inside the app:
 
 ```
 /Applications/CloudUnhideWatcher.app/Contents/Resources/Scripts/
-├── diagnose_rehide.sh
-└── merge_icloud_conflicts.sh
+├── icloud_conflict_toolkit.sh   # unified toolkit (primary)
+├── diagnose_rehide.sh           # legacy wrapper → diagnose
+└── merge_icloud_conflicts.sh    # legacy wrapper → scan / apply / verify
 ```
 
-Run them from the menu (**iCloud Tools**) or from Terminal using the paths above. Reports are written to `~/Library/Logs/CloudUnhideWatcher/`.
+Run commands from the menu (**iCloud Tools**) or from Terminal. Non-interactive reports are written to `~/Library/Logs/CloudUnhideWatcher/`.
 
-## Diagnostic (read-only)
+## Toolkit commands
 
-**Menu:** iCloud Tools → Run Diagnostic (read-only)
+| Command | Menu item | Description |
+|---------|-----------|-------------|
+| `diagnose` | Diagnose iCloud Health… | FDA, hidden files, conflict folders, log analysis (read-only) |
+| `report` | Full Report… | `diagnose` + `scan` together |
+| `scan` | Scan Conflict Folders… | Dry run — UNIQUE / IDENTICAL / DIFFERS |
+| `apply` | Apply Conflict Merge… | Move UNIQUE files only; save verify baseline |
+| `verify` | Verify Conflict Folders… | Compare to last apply snapshot (regrowth?) |
+| `resolve` | Resolve Conflicting Files… | Interactive Terminal session for DIFFERS files |
 
-Checks:
+### Safety
 
-- App install location
-- Full Disk Access / CloudDocs path access
-- Hidden watch roots (`~/Desktop`, `~/Documents`)
-- Hidden files under watched trees
-- iCloud conflict folders (`Desktop - hostname`, `Documents - hostname`)
-- Session log contention (how often restores fire)
+- Never deletes files or folders.
+- `scan` and `diagnose` are fully read-only.
+- `apply` moves only files that do not already exist in the live folder.
+- `resolve` backs up the live copy before any overwrite.
 
-No files are modified.
+Apply/verify snapshots are stored under `~/.icloud_conflict_toolkit_state/`.
 
-## Conflict folder merge
+## Conflict folder categories
 
-When iCloud creates `Desktop - <hostname>` or `Documents - <hostname>` folders, files may need reconciliation into the live Desktop/Documents folders.
-
-### Dry run (default)
-
-**Menu:** iCloud Tools → Merge Conflicts (preview)
-
-Lists each file as **UNIQUE**, **IDENTICAL**, or **DIFFERS**:
-
-| Category | Meaning | Script action |
-|----------|---------|---------------|
-| **UNIQUE** | In conflict folder only | Moved with Apply |
+| Category | Meaning | Toolkit action |
+|----------|---------|----------------|
+| **UNIQUE** | In conflict folder only | Moved with `apply` |
 | **IDENTICAL** | Same name, byte-for-byte match in live folder | Listed only |
-| **DIFFERS** | Same name, different content | Manual review required |
-
-### Apply
-
-**Menu:** iCloud Tools → Merge Conflicts (apply UNIQUE only)
-
-- Moves **UNIQUE** files into the live Desktop/Documents folder
-- Saves a per-folder snapshot under `~/.cloudunhide_merge_state/` for verify
-- Never overwrites existing live files
-- Never deletes conflict-folder content automatically
-
-### Verify
-
-**Menu:** iCloud Tools → Merge Conflicts (verify snapshot)
-
-Compares current conflict-folder contents to the last apply snapshot. **REGROWN** indicates ongoing sync conflict — address on all Macs signed into the same iCloud account.
+| **DIFFERS** | Same name, different content | Use `resolve` (interactive) |
 
 ## Terminal equivalents
 
 ```bash
+TOOLKIT="/Applications/CloudUnhideWatcher.app/Contents/Resources/Scripts/icloud_conflict_toolkit.sh"
+
+bash "${TOOLKIT}" diagnose
+bash "${TOOLKIT}" report
+bash "${TOOLKIT}" scan
+bash "${TOOLKIT}" apply
+bash "${TOOLKIT}" verify
+bash "${TOOLKIT}" resolve   # interactive — run in Terminal
+```
+
+Legacy wrappers (same behavior):
+
+```bash
 SCRIPTS="/Applications/CloudUnhideWatcher.app/Contents/Resources/Scripts"
-
-# Read-only diagnostic
 bash "${SCRIPTS}/diagnose_rehide.sh"
-
-# Preview merge
-bash "${SCRIPTS}/merge_icloud_conflicts.sh"
-
-# Apply UNIQUE files only
-bash "${SCRIPTS}/merge_icloud_conflicts.sh" --apply
-
-# Verify against last snapshot
-bash "${SCRIPTS}/merge_icloud_conflicts.sh" --verify
+bash "${SCRIPTS}/merge_icloud_conflicts.sh"           # → scan
+bash "${SCRIPTS}/merge_icloud_conflicts.sh" --apply   # → apply
+bash "${SCRIPTS}/merge_icloud_conflicts.sh" --verify  # → verify
 ```
 
 ## When to use
 
-1. **Diagnose** first whenever files keep re-hiding.
-2. **Preview** when diagnose reports conflict folders.
-3. **Apply** when preview shows mostly UNIQUE files you want in live folders.
+1. **Diagnose** or **Full Report** when files keep re-hiding.
+2. **Scan** when diagnose reports conflict folders.
+3. **Apply** when scan shows mostly UNIQUE files you want in live folders.
 4. **Verify** days later to confirm conflict folders stopped growing.
+5. **Resolve** when scan/apply lists DIFFERS files needing manual choice.
 
 ## Related
 

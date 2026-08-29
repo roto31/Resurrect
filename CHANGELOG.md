@@ -15,17 +15,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-08-29
+
 ### Added
-- Public documentation mirror (`docs/`, GitHub Wiki, Releases on this repository) — see [Docs index](docs/README.md).
-- Menu bar **iCloud Tools** submenu runs bundled diagnose and conflict-merge scripts; reports under `~/Library/Logs/CloudUnhideWatcher/` — see [iCloud Tools](docs/icloud-tools.md).
+- **`icloud_conflict_toolkit.sh`** bundled in the app — unified `diagnose`, `scan`, `apply`, `verify`, `resolve`, and `report` commands — see [iCloud Tools](docs/icloud-tools.md).
+- Menu bar **iCloud Tools**: Full Report, Resolve Conflicting Files (Terminal), and expanded toolkit menu items.
 - Conflict-folder warnings in app log after scans when `Desktop - <hostname>` / `Documents - <hostname>` folders exist.
 
 ### Changed
-- Hidden restore dual-clears Finder `isHidden` and BSD `UF_HIDDEN`, uses a short self-event suppress (~4s), and runs a per-path pin watchdog (1s re-clears up to 120s) when iCloud re-applies the hidden flag — see [Troubleshooting](docs/troubleshooting.md).
+- Legacy `diagnose_rehide.sh` / `merge_icloud_conflicts.sh` wrap the unified toolkit.
+- Apply/verify snapshots use `~/.icloud_conflict_toolkit_state/`.
+- Hidden restore dual-clears Finder `isHidden` and BSD `UF_HIDDEN`, pin watchdog for re-hide loops — see [Troubleshooting](docs/troubleshooting.md).
 
 ### Fixed
 - Recursive scan clears hidden state on watch root directories (`~/Desktop`, `~/Documents`).
-- Watch Desktop/Documents via resolved user folders when iCloud File Provider exposes detached symlinks (avoids false “Needs Full Disk Access”).
+- Watch Desktop/Documents via resolved user folders when iCloud File Provider exposes detached symlinks.
 - Full Disk Access alert only shown for real permission denials.
 
 ## [1.1.0] - 2026-08-29

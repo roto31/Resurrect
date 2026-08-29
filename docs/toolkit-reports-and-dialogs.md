@@ -29,7 +29,7 @@ When **Local hidden files** assist is enabled (newer builds), the same window al
 
 ## Result sheet (after Diagnose, Scan, Apply, Verify, Report)
 
-When a toolkit run finishes, a summary alert appears. Example from **Scan Conflict Folders (dry run)**:
+When a toolkit run finishes, a summary alert appears. Example from **Scan Conflict Folders (dry run)** (fictional user `alex` — not a real Mac):
 
 ![Scan result sheet — summary, log path, Open Report / Reveal in Finder / OK](images/alert-scan-results.jpg)
 

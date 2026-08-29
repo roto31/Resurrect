@@ -16,6 +16,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.1] - 2026-08-29
+
+### Fixed
+- Help diagrams render as resizable charts (not Mermaid source code).
+- Help tables render as formatted grids (not raw `|` markdown).
+- Help sidebar is a curated Start here / Guides / Reference menu.
+- In-page Help links open converted pages instead of raw `.md` source.
+
 ## [1.4.0] - 2026-08-29
 
 ### Added

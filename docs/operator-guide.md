@@ -63,7 +63,23 @@ When iCloud repeatedly re-applies the hidden flag, the app uses a short pin watc
 
 ## MDM deployment
 
-For managed Macs, pre-approve Full Disk Access via a PPPC configuration profile for bundle ID `com.ruter.cloudunhidewatcher` rather than relying on interactive prompts.
+For managed Macs, pre-approve Full Disk Access via a PPPC configuration profile for bundle ID `com.cloudunhidewatcher` rather than relying on interactive prompts.
+
+### Sample PPPC payload (FDA only)
+
+Use your MDM’s profile editor or a `.mobileconfig` with a `com.apple.TCC.configuration-profile-policy` payload. Example keys (no secrets):
+
+| Key | Value |
+|-----|-------|
+| `Service` | `SystemPolicyAllFiles` |
+| `Identifier` | `com.cloudunhidewatcher` |
+| `IdentifierType` | `bundleID` |
+| `Allowed` | `true` |
+| `CodeRequirement` | Match your signed `CloudUnhideWatcher.app` requirement string from `codesign -dr -` |
+
+After deploying the profile, users should not need the FDA setup wizard. Re-deploy when the Team ID or signing identity changes.
+
+**Note:** Upgrades from the v1.3.x bundle ID require a new PPPC entry for `com.cloudunhidewatcher`.
 
 ## Related
 

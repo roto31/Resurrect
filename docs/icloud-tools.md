@@ -12,7 +12,16 @@ CloudUnhideWatcher bundles the **iCloud Conflict Toolkit** inside the app:
 
 For **local** folders outside iCloud Desktop/Documents, see [Local hidden files](local-hidden-files.md) (opt-in Settings toggle).
 
-Run commands from the menu (**iCloud Tools** / **Local Tools**) or from Terminal. Non-interactive reports are written to `~/Library/Logs/CloudUnhideWatcher/`.
+## Repair vs Advanced
+
+| Path | When to use |
+|------|-------------|
+| **Repair iCloud Folders…** (menu bar) | **Recommended first step** — runs diagnose + scan, then offers clear / apply / resolve in plain language |
+| **iCloud Tools → Advanced** | Power users: individual diagnose, scan, apply, verify, resolve commands |
+
+Advanced commands are **hidden by default**. Choose **Enable Advanced iCloud Tools…** in the iCloud Tools submenu to show all six toolkit items. Most users only need **Repair**.
+
+Run commands from the menu (**Repair**, **iCloud Tools** / **Local Tools**) or from Terminal.
 
 See [Menu Bar Navigation](navigation.md#icloud-tools-submenu) for screenshots of each menu item.
 

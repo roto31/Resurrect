@@ -92,7 +92,7 @@ See [Local hidden files](local-hidden-files.md) and [Process Flows — Local ass
 |---------|-----|
 | Menu shows "Needs Full Disk Access" | Enable FDA for `/Applications/CloudUnhideWatcher.app` |
 | App not listed in FDA | Click **+**, select the installed app; do not run `swift run` |
-| FDA enabled but still denied | Reset TCC: `tccutil reset SystemPolicyAllFiles com.ruter.cloudunhidewatcher`, re-grant, relaunch |
+| FDA enabled but still denied | Reset TCC: `tccutil reset SystemPolicyAllFiles com.cloudunhidewatcher`, re-grant, relaunch |
 | ENOTDIR / path errors | Use signed build from `/Applications/`; ensure iCloud Desktop & Documents is enabled |
 
 ## Hidden Desktop or Documents root
@@ -107,7 +107,7 @@ The app rescans the full tree on coalesced FSEvents. Very large folders with fre
 
 - File log: `~/Library/Logs/icloud-unhide-watcher.log`
 - iCloud Tools reports: `~/Library/Logs/CloudUnhideWatcher/`
-- Console: filter `com.ruter.cloudunhidewatcher`
+- Console: filter `com.cloudunhidewatcher`
 
 ## Related
 

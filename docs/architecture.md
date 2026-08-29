@@ -99,7 +99,7 @@ Restored paths must be:
 
 - Developer ID signed + notarized `.app` in release DMG
 - Unsandboxed (required for Apple's iCloud container)
-- Bundle ID: `com.ruter.cloudunhidewatcher`
+- Bundle ID: `com.cloudunhidewatcher`
 
 ## Related
 

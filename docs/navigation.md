@@ -11,10 +11,12 @@ CloudUnhideWatcher runs as a **menu bar only** app (no Dock icon). Click the **e
 | **Status line** | — | Gray header: monitoring state, last restore count, paused, or FDA needed. | Nothing (not clickable). |
 | **Scan Now** | ⌘S | Immediate full scan of watched iCloud Desktop/Documents; clears hidden flags on eligible paths. | Nothing; may update status line and app log. |
 | **Pause Monitoring** | ⌘P | Stops FSEvents watching without quitting. Label toggles to resume when paused. | Nothing. |
-| **iCloud Tools** | → | Submenu — bundled **iCloud Conflict Toolkit**. | Submenu (below). |
+| **Repair iCloud Folders…** | — | Guided diagnose + scan with plain-language next steps (v1.4.0+). | Repair outcome dialog → optional apply or in-app resolve. |
+| **iCloud Tools** | → | Submenu — advanced toolkit commands (hidden until enabled). | Submenu (below). |
 | **Local Tools** | → | Submenu — **local hidden file** toolkit (when feature is enabled in your build). | Submenu (below). |
 | **Enable CloudUnhideWatcher in Full Disk Access…** | — | Shown when CloudDocs paths are not readable. | **System Settings → Privacy & Security → Full Disk Access**. |
 | **Settings…** | ⌘, | Preferences window. | [Settings window](toolkit-reports-and-dialogs.md#settings-window). |
+| **Help** | → | Search embedded docs, Getting Started, Troubleshooting (v1.4.0+). | Help window or topic viewer; **Search Help…** is ⌘?. |
 | **Quit CloudUnhideWatcher** | ⌘Q | Exits and stops all monitoring. | Nothing. |
 
 ### Status line examples
@@ -25,8 +27,12 @@ CloudUnhideWatcher runs as a **menu bar only** app (no Dock icon). Click the **e
 | `Restored N file(s)…` | Last scan cleared hidden flags on N paths |
 | `Paused` | Monitoring suspended via **Pause Monitoring** |
 | `Needs Full Disk Access` (or similar) | Grant FDA before scans can reach iCloud folders |
+| `N conflict folder(s) — Repair recommended` | iCloud conflict folders detected — use **Repair iCloud Folders…** |
+| `Re-hide detected — run Repair` | Pin watchdog is fighting repeated re-hide events |
 
 ## iCloud Tools submenu
+
+By default only a short note and **Enable Advanced iCloud Tools…** are shown. Enable Advanced to reveal the six commands below.
 
 ![iCloud Tools submenu — diagnose, report, scan, apply, verify, resolve](images/menu-bar-icloud-tools.jpg)
 
@@ -38,7 +44,7 @@ CloudUnhideWatcher runs as a **menu bar only** app (no Dock icon). Click the **e
 | **Scan Conflict Folders (dry run)…** | `scan` | Lists UNIQUE / IDENTICAL / DIFFERS; moves nothing. | Result sheet + log file. |
 | **Apply Conflict Merge…** | `apply` | Moves **UNIQUE** files into live folders only; saves verify snapshot. | **Continue/Cancel** confirm first, then result sheet + log. |
 | **Verify Conflict Folders…** | `verify` | Compares to last apply snapshot; flags **REGROWN** folders. | Result sheet + log file. |
-| **Resolve Conflicting Files…** | `resolve` | Interactive **DIFFERS** resolution. | [Resolve dialog](toolkit-reports-and-dialogs.md#resolve-conflicting-files--confirmation) → **Terminal** (or [automation error](toolkit-reports-and-dialogs.md#resolve-failed--terminal-automation)). |
+| **Resolve Conflicting Files…** | `resolve` | Interactive **DIFFERS** resolution. | In-app wizard (v1.4.0+) or Terminal fallback from Advanced path. |
 
 If another toolkit job is already running, you see **[Maintenance Busy](toolkit-reports-and-dialogs.md#maintenance-busy)** instead.
 

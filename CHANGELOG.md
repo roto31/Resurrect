@@ -16,6 +16,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-08-29
+
+### Added
+- FDA setup assistant, **Repair iCloud Folders…**, Advanced iCloud Tools toggle, in-app DIFFERS resolver, Help menu with embedded doc search (⌘?), conflict-folder notifications, [comparison guide](comparison.md).
+
+### Changed
+- **Breaking:** Bundle ID `com.cloudunhidewatcher` — re-grant FDA after upgrade.
+
 ## [1.3.1] - 2026-08-29
 
 ### Fixed

@@ -16,6 +16,7 @@ User documentation for the **CloudUnhideWatcher** macOS application.
 | [iCloud Tools](icloud-tools.md) | iCloud Conflict Toolkit (diagnose, scan, apply, verify, resolve) |
 | [Local hidden files](local-hidden-files.md) | Opt-in local folder assist (v1.3.0+) — settings, Local Tools, diagrams |
 | [Troubleshooting](troubleshooting.md) | Re-hide loops, conflict folders, FDA |
+| [Comparison guide](comparison.md) | vs similar tools — when to use / not use this app |
 
 ## Diagrams
 

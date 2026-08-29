@@ -37,8 +37,11 @@ flowchart LR
 | Continuous watch | Recursive FSEvents on iCloud Desktop & Documents |
 | Auto-restore | Clears `isHidden` and `UF_HIDDEN` on eligible paths |
 | Pin watchdog | Re-clears paths iCloud keeps re-hiding (up to 120s) |
-| Menu bar control | Status, scan, pause, settings, quit |
-| iCloud Tools | Bundled iCloud Conflict Toolkit (diagnose, scan, apply, verify, resolve) |
+| Menu bar control | Status, Repair, scan, pause, Help, settings, quit |
+| Repair iCloud Folders | Guided diagnose + scan with next-step prompts (v1.4.0+) |
+| In-app Help | Embedded docs + plain-language search (⌘?) (v1.4.0+) |
+| iCloud Tools | Bundled toolkit; Advanced commands opt-in (v1.4.0+) |
+| In-app DIFFERS resolve | Review conflicting files without Terminal (v1.4.0+) |
 | Local hidden assist | Opt-in local folder toolkit + optional continuous watch (v1.3.0+) |
 | Launch at login | `SMAppService` on macOS 13+ |
 
@@ -55,4 +58,5 @@ flowchart LR
 - [Local hidden files](local-hidden-files.md)
 - [Architecture](architecture.md)
 - [Getting Started](getting-started.md)
+- [Comparison guide](comparison.md)
 - [Troubleshooting](troubleshooting.md)

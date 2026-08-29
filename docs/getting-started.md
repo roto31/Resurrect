@@ -31,12 +31,28 @@ CloudUnhideWatcher needs access to iCloud Drive Desktop & Documents under your u
 If FDA still fails after a signed install:
 
 ```bash
-tccutil reset SystemPolicyAllFiles com.ruter.cloudunhidewatcher
+tccutil reset SystemPolicyAllFiles com.cloudunhidewatcher
 ```
 
 Then re-add `/Applications/CloudUnhideWatcher.app` in Full Disk Access and relaunch.
 
+> **Upgrading from v1.3.x or earlier:** Bundle ID changed to `com.cloudunhidewatcher`. Remove any old Full Disk Access entry for the previous app version, run `tccutil reset SystemPolicyAllFiles com.cloudunhidewatcher` if needed, then re-grant FDA for the new build.
+
 Also check **System Settings → Privacy & Security → Files and Folders** for any dismissed prompts.
+
+## FDA setup assistant
+
+On first launch (or when FDA is still required), the app may show a **Full Disk Access Setup** wizard:
+
+1. Why FDA is needed
+2. Open System Settings / Reveal in Finder
+3. **I've enabled it — Check Again** (re-probes permissions)
+
+The wizard dismisses automatically when access is confirmed. You can also open it anytime from **Enable CloudUnhideWatcher in Full Disk Access…** in the menu.
+
+## In-app Help
+
+Press **⌘?** or open **Help → Search Help…** from the menu bar. Type plain-language queries (e.g. “full disk access”, “conflict folders”, “repair”) to search documentation embedded in the app. **Browse All Topics…** lists every help article shipped with the build.
 
 ## First launch
 

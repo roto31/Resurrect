@@ -5,6 +5,7 @@ Product rename from CloudUnhideWatcher. This is a **new app identity**.
 ### Changed
 
 - App name is **Resurrect**; bundle ID is **`com.resurrect`**.
+- New app icon (phoenix / recovered documents).
 - Log file is `~/Library/Logs/resurrect.log` (toolkit reports under `~/Library/Logs/Resurrect/`).
 - Settings migrate automatically from prior versions.
 

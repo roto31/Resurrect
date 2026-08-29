@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `com.resurrect`. Re-grant Full Disk Access, re-enable Launch at Login, and
   install `Resurrect-1.5.0-macos.dmg` to `/Applications/Resurrect.app`. Log
   file is `~/Library/Logs/resurrect.log`. Settings migrate automatically.
+- App icon updated (phoenix / recovered-documents artwork).
 
 ## [1.4.1] - 2026-08-29
 

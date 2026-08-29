@@ -4,12 +4,17 @@ CloudUnhideWatcher bundles the **iCloud Conflict Toolkit** inside the app:
 
 ```
 /Applications/CloudUnhideWatcher.app/Contents/Resources/Scripts/
-├── icloud_conflict_toolkit.sh   # unified toolkit (primary)
+├── icloud_conflict_toolkit.sh   # unified iCloud toolkit (primary)
+├── local_hidden_toolkit.sh      # local (non-iCloud) hidden files (v1.3.0+)
 ├── diagnose_rehide.sh           # legacy wrapper → diagnose
 └── merge_icloud_conflicts.sh    # legacy wrapper → scan / apply / verify
 ```
 
-Run commands from the menu (**iCloud Tools**) or from Terminal. Non-interactive reports are written to `~/Library/Logs/CloudUnhideWatcher/`.
+For **local** folders outside iCloud Desktop/Documents, see [Local hidden files](local-hidden-files.md) (opt-in Settings toggle).
+
+Run commands from the menu (**iCloud Tools** / **Local Tools**) or from Terminal. Non-interactive reports are written to `~/Library/Logs/CloudUnhideWatcher/`.
+
+See [Menu Bar Navigation](navigation.md#icloud-tools-submenu) for screenshots of each menu item.
 
 ## Workflow diagram
 

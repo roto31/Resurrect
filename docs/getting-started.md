@@ -42,7 +42,7 @@ Also check **System Settings → Privacy & Security → Files and Folders** for 
 
 After permissions are granted:
 
-- Menu bar shows status (idle, restored N files, paused, or permission warning)
+- Menu bar shows status (idle, restored N files, paused, or permission warning) — see [Menu Bar Navigation](navigation.md)
 - The app watches Desktop and Documents automatically
 - Use **Scan Now** for an immediate full scan
 - Open **Settings…** (⌘,) for debounce, logging, and launch-at-login
@@ -59,6 +59,7 @@ In **Settings → General**, enable **Launch at Login** so the watcher starts af
 
 ## Next steps
 
+- [Menu Bar Navigation](navigation.md) — screenshots and every menu item
 - [Operator Guide](operator-guide.md) — day-to-day use
 - [Process Flows](process-flows.md) — diagrams of restore and diagnose flows
 - [Troubleshooting](troubleshooting.md) — if files keep re-hiding

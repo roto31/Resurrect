@@ -12,8 +12,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [Getting Started](https://github.com/roto31/CloudUnhideWatcher/wiki/Getting-Started)
 - [Troubleshooting](docs/troubleshooting.md)
 - [iCloud Tools](docs/icloud-tools.md)
+- [Local hidden files](docs/local-hidden-files.md)
 
 ## [Unreleased]
+
+### Docs
+- [Menu Bar Navigation](docs/navigation.md) with menu screenshots; images under `docs/images/`.
+
+## [1.3.0] - 2026-08-29
+
+### Added
+- **Local Hidden File Assist** (opt-in, default OFF) — Settings toggle, folder list, optional continuous watch, and **Local Tools** menu — see [Local hidden files](docs/local-hidden-files.md).
+- **`local_hidden_toolkit.sh`** bundled in the app (`diagnose`, `scan`, `apply`, `report`).
+
+### Changed
+- Settings adds a **Local hidden files (non-iCloud)** section.
+
+### Fixed
+- Removed developer-only debug log path from release builds.
 
 ## [1.2.1] - 2026-08-29
 

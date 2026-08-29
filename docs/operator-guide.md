@@ -1,8 +1,12 @@
 # Operator Guide
 
+For screenshots and a full menu walkthrough, see **[Menu Bar Navigation](navigation.md)**.
+
 ## Menu bar
 
 Click the eye icon in the menu bar:
+
+![Main menu](images/menu-bar-main.jpg)
 
 | Item | Action |
 |------|--------|
@@ -40,9 +44,11 @@ Open **Settings…** from the menu or press ⌘,.
 
 ## iCloud Tools
 
+![iCloud Tools submenu](images/menu-bar-icloud-tools.jpg)
+
 The **iCloud Tools** submenu runs maintenance scripts bundled inside the app. Reports are saved under `~/Library/Logs/CloudUnhideWatcher/`.
 
-See [iCloud Tools](icloud-tools.md) for diagnose, merge preview, apply, and verify workflows.
+See [Menu Bar Navigation](navigation.md#icloud-tools-submenu) and [iCloud Tools](icloud-tools.md) for each menu item and toolkit command.
 
 ## What gets unhidden
 
@@ -60,6 +66,7 @@ For managed Macs, pre-approve Full Disk Access via a PPPC configuration profile 
 
 ## Related
 
+- [Menu Bar Navigation](navigation.md)
 - [Getting Started](getting-started.md)
 - [Troubleshooting](troubleshooting.md)
 - [Architecture](architecture.md)

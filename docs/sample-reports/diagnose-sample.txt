@@ -1,0 +1,43 @@
+# iCloud conflict toolkit
+# exit=0
+# args=diagnose
+# ---
+==================================================================
+DIAGNOSE — local iCloud hidden-file / sync health check on: Alexs-MacBook-Pro
+==================================================================
+
+--- CloudUnhideWatcher install ---
+  ✅ PASS: App found at /Applications/CloudUnhideWatcher.app
+  ✅ PASS: CloudUnhideWatcher process is running
+
+--- Full Disk Access / CloudDocs container ---
+  ✅ PASS: CloudDocs container is readable
+
+--- Watch roots hidden check ---
+  ✅ PASS: Watch root not hidden: /Users/alex/Desktop
+  ✅ PASS: Watch root not hidden: /Users/alex/Documents
+
+--- Currently hidden files (UF_HIDDEN) under Desktop/Documents ---
+  ✅ PASS: No currently-hidden items found
+
+--- iCloud conflict folders on this Mac ---
+     - /Users/alex/Desktop/Desktop - Alexs-MacBook-Pro
+     - /Users/alex/Documents/Documents - Alexs-MacBook-Studio
+     - /Users/alex/Documents/Documents - Alexs-MacBook-Pro - 1
+  ❌ FAILED: 3 conflict folder(s) present
+     → Run 'icloud_conflict_toolkit.sh scan' for details, then 'icloud_conflict_toolkit.sh apply' to reconcile
+
+--- Legacy .hidden manifest check ---
+  ✅ PASS: No .hidden manifest in /Users/alex/Desktop
+  ✅ PASS: No .hidden manifest in /Users/alex/Documents
+
+--- CloudUnhideWatcher log analysis ---
+     (analyzing log since last app launch at line 142)
+     External re-hide events (current session): 0
+     Pin re-clear events:                       0
+     FDA error events:                          0
+  ✅ PASS: Log shows low/no re-hide contention
+
+==================================================================
+DIAGNOSE RESULT: 1 issue(s) found on Alexs-MacBook-Pro — see notes above
+==================================================================

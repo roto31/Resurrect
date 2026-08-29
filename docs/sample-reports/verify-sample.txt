@@ -1,0 +1,25 @@
+# iCloud conflict toolkit
+# exit=0
+# args=verify
+# ---
+==================================================================
+MODE: VERIFY — compare conflict folders to last apply snapshot
+==================================================================
+
+------------------------------------------------------------------
+Conflict folder: /Users/alex/Desktop/Desktop - Alexs-MacBook-Pro
+Snapshot:        a1b2c3d4.snapshot (2026-08-27 apply)
+------------------------------------------------------------------
+  ✅ STABLE: file count unchanged (3 entries)
+  ✅ STABLE: Budget-2026.xlsx still only in live folder (not regrown in conflict copy)
+
+------------------------------------------------------------------
+Conflict folder: /Users/alex/Documents/Documents - Alexs-MacBook-Pro - 1
+Snapshot:        i9j0k1l2.snapshot (2026-08-27 apply)
+------------------------------------------------------------------
+  ⚠️  REGROWN: 2 new file(s) appeared in conflict folder since snapshot
+     → Another Mac may still be writing to this conflict copy
+
+==================================================================
+VERIFY RESULT: 1 folder(s) show regrowth — repeat merge on each Mac on the account
+==================================================================

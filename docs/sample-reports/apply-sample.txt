@@ -1,0 +1,49 @@
+# iCloud conflict toolkit
+# exit=0
+# args=apply
+# ---
+==================================================================
+MODE: APPLY — unique files WILL be moved into the live folder
+==================================================================
+
+------------------------------------------------------------------
+Conflict folder: /Users/alex/Desktop/Desktop - Alexs-MacBook-Pro
+Live target:     /Users/alex/Desktop
+------------------------------------------------------------------
+  IDENTICAL: .localized  (already in live folder, byte-for-byte)
+  IDENTICAL: Notes.txt  (already in live folder, byte-for-byte)
+  MOVED:     Budget-2026.xlsx → /Users/alex/Desktop/Budget-2026.xlsx
+  Summary: 1 unique, 2 identical, 0 differ
+  Moved: 1, Failed: 0
+  📌 Snapshot saved for future 'verify': a1b2c3d4.snapshot
+
+------------------------------------------------------------------
+Conflict folder: /Users/alex/Documents/Documents - Alexs-MacBook-Studio
+Live target:     /Users/alex/Documents
+------------------------------------------------------------------
+  IDENTICAL: .localized  (already in live folder, byte-for-byte)
+  Summary: 0 unique, 1 identical, 0 differ
+  Moved: 0, Failed: 0
+  📌 Snapshot saved for future 'verify': e5f6g7h8.snapshot
+
+------------------------------------------------------------------
+Conflict folder: /Users/alex/Documents/Documents - Alexs-MacBook-Pro - 1
+Live target:     /Users/alex/Documents
+------------------------------------------------------------------
+  IDENTICAL: .localized  (already in live folder, byte-for-byte)
+  DIFFERS:   Projects/ExampleApp/README.md  (⚠️  same name, different content)
+  Summary: 0 unique, 1 identical, 1 differ
+  Moved: 0, Failed: 0
+  📌 Snapshot saved for future 'verify': i9j0k1l2.snapshot
+
+==================================================================
+SUMMARY
+==================================================================
+Totals: 1 unique, 4 identical, 1 differ
+        1 moved successfully, 0 failed
+
+⚠️  1 file(s) need manual review — run:
+     icloud_conflict_toolkit.sh resolve
+
+A baseline snapshot was saved per folder. Run 'icloud_conflict_toolkit.sh verify' in a few
+days to check whether any conflict folder has regrown.

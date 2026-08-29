@@ -33,7 +33,7 @@ bash "${TOOLKIT}" diagnose
 bash "${TOOLKIT}" report    # diagnose + scan
 ```
 
-The report checks install path, FDA/CloudDocs access, hidden watch roots, hidden files, conflict folders, and log contention. Output is saved under `~/Library/Logs/CloudUnhideWatcher/`.
+The report checks install path, FDA/CloudDocs access, hidden watch roots, hidden files, conflict folders, and log contention. Output is saved under `~/Library/Logs/CloudUnhideWatcher/`. See [fictional sample output](toolkit-reports-and-dialogs.md#sample-toolkit-reports-fictional).
 
 ### 2. Check for conflict folders
 
@@ -51,7 +51,7 @@ These indicate multi-Mac iCloud Desktop & Documents conflicts. Use [iCloud Tools
 | **Scan** | Lists UNIQUE / IDENTICAL / DIFFERS; moves nothing |
 | **Apply** | Moves UNIQUE files only; never overwrites live files |
 | **Verify** | Compares conflict folders to saved snapshot; detects regrowth |
-| **Resolve** | Interactive Terminal session for DIFFERS files |
+| **Resolve** | Interactive Terminal session for DIFFERS files — see [Toolkit Reports & Dialogs](toolkit-reports-and-dialogs.md#resolve-conflicting-files--confirmation) if Terminal automation fails |
 
 The toolkit **never deletes** conflict folders automatically. **Apply** never overwrites existing live files. Run **Verify** again after a day or two; **REGROWN** means another Mac is still writing into the conflict copy — repeat on **each Mac** on the same iCloud account.
 

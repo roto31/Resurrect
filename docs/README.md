@@ -10,6 +10,7 @@ User documentation for the **CloudUnhideWatcher** macOS application.
 |------|-------------|
 | [Getting Started](getting-started.md) | Install DMG, FDA, first launch |
 | [Menu Bar Navigation](navigation.md) | Screenshots — main menu and iCloud Tools |
+| [Toolkit Reports & Dialogs](toolkit-reports-and-dialogs.md) | Result sheets, alerts, fictional sample logs |
 | [Operator Guide](operator-guide.md) | Settings, launch-at-login, eligibility |
 | [iCloud Tools](icloud-tools.md) | iCloud Conflict Toolkit (diagnose, scan, apply, verify, resolve) |
 | [Troubleshooting](troubleshooting.md) | Re-hide loops, conflict folders, FDA |

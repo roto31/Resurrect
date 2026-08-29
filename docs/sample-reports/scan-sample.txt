@@ -1,0 +1,47 @@
+# iCloud conflict toolkit
+# exit=0
+# args=scan
+# ---
+==================================================================
+MODE: SCAN (dry run) — no files will be moved
+==================================================================
+
+------------------------------------------------------------------
+Conflict folder: /Users/alex/Desktop/Desktop - Alexs-MacBook-Pro
+Live target:     /Users/alex/Desktop
+------------------------------------------------------------------
+  IDENTICAL: .localized  (already in live folder, byte-for-byte)
+  IDENTICAL: Notes.txt  (already in live folder, byte-for-byte)
+  UNIQUE:    Budget-2026.xlsx  (only in conflict folder)
+  Summary: 1 unique, 2 identical, 0 differ
+
+------------------------------------------------------------------
+Conflict folder: /Users/alex/Documents/Documents - Alexs-MacBook-Studio
+Live target:     /Users/alex/Documents
+------------------------------------------------------------------
+  IDENTICAL: .localized  (already in live folder, byte-for-byte)
+  Summary: 0 unique, 1 identical, 0 differ
+
+------------------------------------------------------------------
+Conflict folder: /Users/alex/Documents/Documents - Alexs-MacBook-Pro - 1
+Live target:     /Users/alex/Documents
+------------------------------------------------------------------
+  IDENTICAL: .localized  (already in live folder, byte-for-byte)
+  DIFFERS:   Projects/ExampleApp/README.md  (⚠️  same name, different content)
+  Summary: 0 unique, 1 identical, 1 differ
+
+==================================================================
+SUMMARY
+==================================================================
+Result    | Folder
+--------- | ------
+PROCESSED | /Users/alex/Desktop/Desktop - Alexs-MacBook-Pro (unique=1 identical=2 differs=0 moved=0 failed=0)
+PROCESSED | /Users/alex/Documents/Documents - Alexs-MacBook-Studio (unique=0 identical=1 differs=0 moved=0 failed=0)
+PROCESSED | /Users/alex/Documents/Documents - Alexs-MacBook-Pro - 1 (unique=0 identical=1 differs=1 moved=0 failed=0)
+
+Totals: 1 unique, 4 identical, 1 differ
+
+⚠️  1 file(s) need manual review — run:
+     icloud_conflict_toolkit.sh resolve
+
+Note: this never deletes files or folders.

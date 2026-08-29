@@ -16,6 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Docs
+- [Why Resurrect Exists](README.md#why-resurrect-exists) origin story on the project README.
+
 ## [1.5.0] - 2026-08-29
 
 ### Changed

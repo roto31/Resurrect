@@ -15,9 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
-- Wiki **Process Flows** page with Mermaid diagrams for restore, FDA, diagnose, and conflict-resolution workflows.
-- `Scripts/bootstrap_public_wiki.sh` for one-time wiki bootstrap and full page sync.
+## [1.2.1] - 2026-08-29
+
+### Fixed
+- Toolkit **diagnose** no longer false-fails “app not running” when run from the menu bar; session-scoped log analysis avoids stale FDA/re-hide failures — see [iCloud Tools](docs/icloud-tools.md).
 
 ## [1.2.0] - 2026-08-29
 

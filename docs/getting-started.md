@@ -45,7 +45,7 @@ After permissions are granted:
 - Menu bar shows status (idle, restored N files, paused, or permission warning) — see [Menu Bar Navigation](navigation.md)
 - The app watches Desktop and Documents automatically
 - Use **Scan Now** for an immediate full scan
-- Open **Settings…** (⌘,) for debounce, logging, and launch-at-login
+- Open **Settings…** (⌘,) — see [Settings Reference](settings.md) for every control
 
 ### Optional: local hidden files (v1.3.0+)
 

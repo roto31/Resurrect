@@ -1,31 +1,10 @@
 # Toolkit Reports, Dialogs, and Sample Output
 
-This page shows what you see after menu actions: confirmation dialogs, result sheets, error alerts, and the log files written under `~/Library/Logs/CloudUnhideWatcher/`.
+This page shows what you see after **menu maintenance actions**: confirmation dialogs, result sheets, error alerts, and log files under `~/Library/Logs/CloudUnhideWatcher/`.
 
-All paths and host names below are **fictional** (`alex`, `Alexs-MacBook-Pro`) so you can preview output without exposing a real Mac or iCloud account.
+For the **Settings** window (monitoring toggles, debounce, local folders, logging, FDA, launch at login), see **[Settings Reference](settings.md)**.
 
-## Settings window
-
-Open via menu bar → **Settings…** (⌘,).
-
-![CloudUnhideWatcher Settings — monitoring, logging, privacy, launch at login](images/settings-window.jpg)
-
-| Control | What it does |
-|---------|----------------|
-| **Watch iCloud Desktop** | When checked, the app watches `~/Desktop` for iCloud re-hide events and restores visibility. |
-| **Watch iCloud Documents** | Same for `~/Documents`. |
-| **Scan debounce** (slider) | Minimum seconds between full scans after FSEvents activity (0.5–5.0 s). Higher = fewer scans, lower CPU. |
-| **FSEvents latency** (slider) | Coalescing window for file-system events (0.25–3.0 s). |
-| **Enable file logging** | Writes detailed lines to `~/Library/Logs/icloud-unhide-watcher.log`. |
-| **Open Log in Finder** | Opens **Finder** with the log file selected in `~/Library/Logs/`. |
-| **Open Full Disk Access Settings…** | Opens **System Settings → Privacy & Security → Full Disk Access**. |
-| **Reveal CloudUnhideWatcher in Finder** | Opens **Finder** with `/Applications/CloudUnhideWatcher.app` selected (use the **+** button in FDA to add the app). |
-| **Installed at:** (caption) | Read-only path of the running app bundle. |
-| **Launch at Login** | Registers or removes the app in **System Settings → General → Login Items**. |
-
-When **Local hidden files** assist is enabled (newer builds), the same window also lists non-iCloud folders, **Add Folder…**, and **Continuously monitor selected local folders**. See [Operator Guide](operator-guide.md).
-
----
+All paths and host names in sample logs below are **fictional** (`alex`, `Alexs-MacBook-Pro`).
 
 ## Result sheet (after Diagnose, Scan, Apply, Verify, Report)
 

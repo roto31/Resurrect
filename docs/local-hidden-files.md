@@ -66,11 +66,7 @@ flowchart TD
 
 ## Settings
 
-| Control | Default | Behavior |
-|---------|---------|----------|
-| Assist with local hidden files | **Off** | Shows **Local Tools** menu and folder list |
-| Folder list | Empty | Up to 10 folders under your home directory |
-| Continuously monitor selected local folders | **Off** | Adds saved folders to FSEvents when master toggle is on |
+See **[Settings Reference](settings.md)** for the full control list. Summary:
 
 iCloud Desktop/Documents monitoring is unchanged and remains on by default.
 

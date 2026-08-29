@@ -59,9 +59,11 @@ If no folders are saved in Settings, **Apply** and scan-style actions open an **
 
 ## Settings window
 
-![Settings window](images/settings-window.jpg)
+Open via **Settings…** (⌘,). **Full reference:** [Settings](settings.md).
 
-See [Toolkit Reports & Dialogs — Settings](toolkit-reports-and-dialogs.md#settings-window) for every control and what each button opens.
+![Settings — Monitoring and local folders](images/settings-window-monitoring-local.jpg)
+
+![Settings — Logging, privacy, general](images/settings-window-logging-privacy-general.jpg)
 
 ## Result sheets and alerts
 

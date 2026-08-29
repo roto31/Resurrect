@@ -23,7 +23,7 @@ flowchart TD
 
 Resurrect needs access to iCloud Drive Desktop & Documents under your user library. On many Macs this requires **Full Disk Access**.
 
-1. Click the menu bar eye icon → **Enable Resurrect in Full Disk Access…**
+1. Click the menu bar phoenix icon → **Enable Resurrect in Full Disk Access…**
 2. In **System Settings → Privacy & Security → Full Disk Access**, enable **Resurrect**.
 3. If it is not listed, click **+** and select `/Applications/Resurrect.app`.
 4. Quit and relaunch the app.

@@ -17,7 +17,7 @@ Verify the SHA-256 checksum in the release assets before installing when checksu
 ## Quick start
 
 1. Install **Resurrect** to `/Applications/`
-2. Launch the app — an eye icon appears in the menu bar
+2. Launch the app — a phoenix icon appears in the menu bar
 3. Grant **Full Disk Access** when prompted (see [Getting Started](https://github.com/roto31/Resurrect/wiki/Getting-Started))
 4. The app watches Desktop and Documents and unhides eligible files automatically
 

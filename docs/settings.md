@@ -1,6 +1,6 @@
 # Settings Reference
 
-Open **Settings…** from the menu bar (⌘,) or choose it after clicking the eye icon. All controls write to `UserDefaults` under `com.resurrect.settings.*` and apply **live** where possible. When a setting affects FSEvents or watch roots, the app posts `appSettingsDidChange` and **restarts the filesystem monitor** automatically.
+Open **Settings…** from the menu bar (⌘,) or choose it after clicking the phoenix icon. All controls write to `UserDefaults` under `com.resurrect.settings.*` and apply **live** where possible. When a setting affects FSEvents or watch roots, the app posts `appSettingsDidChange` and **restarts the filesystem monitor** automatically.
 
 The window scrolls on smaller displays. Screenshots below use fictional paths (`/Users/alex/...`).
 

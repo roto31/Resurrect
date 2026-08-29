@@ -6,7 +6,7 @@ For **every Settings control**, defaults, and how each option changes runtime be
 
 ## Menu bar
 
-Click the eye icon in the menu bar:
+Click the phoenix icon in the menu bar:
 
 ![Main menu](images/menu-bar-main.jpg)
 

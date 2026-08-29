@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   install `Resurrect-1.5.0-macos.dmg` to `/Applications/Resurrect.app`. Log
   file is `~/Library/Logs/resurrect.log`. Settings migrate automatically.
 - App icon updated (phoenix / recovered-documents artwork).
+- Menu bar icon is a phoenix silhouette matching the app icon.
 
 ## [1.4.1] - 2026-08-29
 

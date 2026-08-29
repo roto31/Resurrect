@@ -1,6 +1,6 @@
 # Menu Bar Navigation
 
-Resurrect runs as a **menu bar only** app (no Dock icon). Click the **eye** icon in the menu bar to open the main menu.
+Resurrect runs as a **menu bar only** app (no Dock icon). Click the **phoenix** icon in the menu bar to open the main menu.
 
 ## Main menu
 

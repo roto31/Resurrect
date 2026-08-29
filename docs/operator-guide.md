@@ -17,7 +17,7 @@ Click the eye icon in the menu bar:
 | **iCloud Tools** | Run bundled diagnose / conflict-merge scripts |
 | **Local Tools** | Local hidden-file toolkit (when enabled in Settings) |
 | **Pause Monitoring** | Stop FSEvents without quitting |
-| **Enable CloudUnhideWatcher in Full Disk Access…** | Opens Privacy & Security (when access denied) |
+| **Enable Resurrect in Full Disk Access…** | Opens Privacy & Security (when access denied) |
 | **Settings…** (⌘,) | Preferences window — see [Settings Reference](settings.md) |
 | **Quit** | Exit the app |
 
@@ -33,7 +33,7 @@ Open **Settings…** (⌘,). Full documentation: **[Settings Reference](settings
 |---------|---------|
 | **Monitoring** | iCloud Desktop/Documents toggles, scan debounce, FSEvents latency |
 | **Local hidden files** | Opt-in non-iCloud folders (v1.3.0+) — see [Local hidden files](local-hidden-files.md) |
-| **Logging** | File log at `~/Library/Logs/icloud-unhide-watcher.log` |
+| **Logging** | File log at `~/Library/Logs/resurrect.log` |
 | **Privacy & Permissions** | FDA shortcuts and install path |
 | **General** | Launch at Login, version string |
 
@@ -41,7 +41,7 @@ Open **Settings…** (⌘,). Full documentation: **[Settings Reference](settings
 
 ![iCloud Tools submenu](images/menu-bar-icloud-tools.jpg)
 
-The **iCloud Tools** submenu runs maintenance scripts bundled inside the app. Reports are saved under `~/Library/Logs/CloudUnhideWatcher/`.
+The **iCloud Tools** submenu runs maintenance scripts bundled inside the app. Reports are saved under `~/Library/Logs/Resurrect/`.
 
 See [Menu Bar Navigation](navigation.md#icloud-tools-submenu) and [iCloud Tools](icloud-tools.md) for each menu item and toolkit command.
 
@@ -63,7 +63,7 @@ When iCloud repeatedly re-applies the hidden flag, the app uses a short pin watc
 
 ## MDM deployment
 
-For managed Macs, pre-approve Full Disk Access via a PPPC configuration profile for bundle ID `com.cloudunhidewatcher` rather than relying on interactive prompts.
+For managed Macs, pre-approve Full Disk Access via a PPPC configuration profile for bundle ID `com.resurrect` rather than relying on interactive prompts.
 
 ### Sample PPPC payload (FDA only)
 
@@ -72,14 +72,14 @@ Use your MDM’s profile editor or a `.mobileconfig` with a `com.apple.TCC.confi
 | Key | Value |
 |-----|-------|
 | `Service` | `SystemPolicyAllFiles` |
-| `Identifier` | `com.cloudunhidewatcher` |
+| `Identifier` | `com.resurrect` |
 | `IdentifierType` | `bundleID` |
 | `Allowed` | `true` |
-| `CodeRequirement` | Match your signed `CloudUnhideWatcher.app` requirement string from `codesign -dr -` |
+| `CodeRequirement` | Match your signed `Resurrect.app` requirement string from `codesign -dr -` |
 
 After deploying the profile, users should not need the FDA setup wizard. Re-deploy when the Team ID or signing identity changes.
 
-**Note:** Upgrades from the v1.3.x bundle ID require a new PPPC entry for `com.cloudunhidewatcher`.
+**Note:** Upgrades from earlier bundle IDs require a new PPPC entry for `com.resurrect`.
 
 ## Related
 

@@ -1,6 +1,6 @@
 # Toolkit Reports, Dialogs, and Sample Output
 
-This page shows what you see after **menu maintenance actions**: confirmation dialogs, result sheets, error alerts, and log files under `~/Library/Logs/CloudUnhideWatcher/`.
+This page shows what you see after **menu maintenance actions**: confirmation dialogs, result sheets, error alerts, and log files under `~/Library/Logs/Resurrect/`.
 
 For the **Settings** window (monitoring toggles, debounce, local folders, logging, FDA, launch at login), see **[Settings Reference](settings.md)**.
 
@@ -15,7 +15,7 @@ When a toolkit run finishes, a summary alert appears. Example from **Scan Confli
 | Button | Opens |
 |--------|--------|
 | **Open Report** | Default text editor (usually **TextEdit**) with the full timestamped log file, e.g. `icloud_conflict_toolkit.sh.scan.2026-08-29_141812.log`. |
-| **Reveal in Finder** | **Finder** window with the log file highlighted in `~/Library/Logs/CloudUnhideWatcher/`. |
+| **Reveal in Finder** | **Finder** window with the log file highlighted in `~/Library/Logs/Resurrect/`. |
 | **OK** | Closes the sheet; no file is opened. |
 
 The body shows exit status, a short **SUMMARY** excerpt from the script, and the full log path.
@@ -23,7 +23,7 @@ The body shows exit status, a short **SUMMARY** excerpt from the script, and the
 Log naming pattern:
 
 ```text
-~/Library/Logs/CloudUnhideWatcher/icloud_conflict_toolkit.sh.<command>.<YYYY-MM-DD_HHMMSS>.log
+~/Library/Logs/Resurrect/icloud_conflict_toolkit.sh.<command>.<YYYY-MM-DD_HHMMSS>.log
 ```
 
 ---
@@ -70,7 +70,7 @@ Run **Scan** or **Apply** first so you know which files differ.
 
 ## Resolve Failed — Terminal automation
 
-If macOS has not granted **Automation** permission for CloudUnhideWatcher to control Terminal:
+If macOS has not granted **Automation** permission for Resurrect to control Terminal:
 
 ![Resolve Failed — Not authorized to send Apple events to Terminal](images/alert-resolve-failed-terminal.jpg)
 
@@ -78,10 +78,10 @@ If macOS has not granted **Automation** permission for CloudUnhideWatcher to con
 |--------|--------|
 | **OK** | Closes the alert. |
 
-**Fix:** **System Settings → Privacy & Security → Automation** → enable **Terminal** under CloudUnhideWatcher. Alternatively run resolve manually:
+**Fix:** **System Settings → Privacy & Security → Automation** → enable **Terminal** under Resurrect. Alternatively run resolve manually:
 
 ```bash
-/Applications/CloudUnhideWatcher.app/Contents/Resources/icloud_conflict_toolkit.sh resolve
+/Applications/Resurrect.app/Contents/Resources/icloud_conflict_toolkit.sh resolve
 ```
 
 ---
@@ -99,9 +99,9 @@ Health check only — no file moves.
 DIAGNOSE — local iCloud hidden-file / sync health check on: Alexs-MacBook-Pro
 ==================================================================
 
---- CloudUnhideWatcher install ---
-  ✅ PASS: App found at /Applications/CloudUnhideWatcher.app
-  ✅ PASS: CloudUnhideWatcher process is running
+--- Resurrect install ---
+  ✅ PASS: App found at /Applications/Resurrect.app
+  ✅ PASS: Resurrect process is running
 
 --- Full Disk Access / CloudDocs container ---
   ✅ PASS: CloudDocs container is readable
@@ -198,7 +198,7 @@ Runs **diagnose** and **scan** in one log file. The result sheet is the same as 
 |--------|------------|--------------|
 | iCloud conflict toolkit | `icloud_conflict_toolkit.sh.*.log` | Menu **iCloud Tools** actions |
 | Local hidden toolkit | `local_hidden_toolkit.sh.*.log` | Menu **Local Tools** actions (when enabled) |
-| App runtime | `icloud-unhide-watcher.log` | **Enable file logging** in Settings |
+| App runtime | `resurrect.log` | **Enable file logging** in Settings |
 
 Snapshots from apply live in `~/.icloud_conflict_toolkit_state/` (not in Logs).
 

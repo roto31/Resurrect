@@ -1,4 +1,4 @@
-## CloudUnhideWatcher v1.4.0
+## Resurrect v1.4.0
 
 Premiere-class UX release: guided workflows, in-app conflict resolution, and embedded Help.
 
@@ -12,7 +12,7 @@ Premiere-class UX release: guided workflows, in-app conflict resolution, and emb
 
 ### Breaking change
 
-Bundle ID is now **`com.cloudunhidewatcher`**. After upgrading:
+Bundle ID is now **`com.resurrect`**. After upgrading:
 
 1. Re-grant **Full Disk Access** in System Settings
 2. Re-enable **Launch at Login** if used
@@ -22,8 +22,8 @@ Settings migrate automatically from the legacy UserDefaults prefix.
 
 ### Documentation
 
-- [Getting Started](https://github.com/roto31/CloudUnhideWatcher/blob/main/docs/getting-started.md)
-- [Menu Bar Navigation](https://github.com/roto31/CloudUnhideWatcher/wiki/Menu-Bar-Navigation)
-- [Comparison guide](https://github.com/roto31/CloudUnhideWatcher/blob/main/docs/comparison.md)
+- [Getting Started](https://github.com/roto31/Resurrect/blob/main/docs/getting-started.md)
+- [Menu Bar Navigation](https://github.com/roto31/Resurrect/wiki/Menu-Bar-Navigation)
+- [Comparison guide](https://github.com/roto31/Resurrect/blob/main/docs/comparison.md)
 
-Install: download `CloudUnhideWatcher-1.4.0-macos.dmg`, drag to Applications, open once via right-click → Open if needed.
+Install: download `Resurrect-1.4.0-macos.dmg`, drag to Applications, open once via right-click → Open if needed.

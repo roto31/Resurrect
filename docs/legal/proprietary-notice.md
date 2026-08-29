@@ -1,10 +1,10 @@
 # Proprietary Notice
 
-**CloudUnhideWatcher** is proprietary software.
+**Resurrect** is proprietary software.
 
 ## Distribution
 
-- Release binaries are distributed via [GitHub Releases](https://github.com/roto31/CloudUnhideWatcher/releases)
+- Release binaries are distributed via [GitHub Releases](https://github.com/roto31/Resurrect/releases)
 - Source code is not published in this repository
 - Documentation in this repository describes operator-facing behavior only
 
@@ -15,4 +15,4 @@ Use subject to the license terms packaged with the release DMG and release notes
 ## Related
 
 - [CHANGELOG](../CHANGELOG.md)
-- [GitHub Releases](https://github.com/roto31/CloudUnhideWatcher/releases)
+- [GitHub Releases](https://github.com/roto31/Resurrect/releases)

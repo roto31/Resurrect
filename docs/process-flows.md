@@ -1,6 +1,6 @@
 # Process Flows
 
-Visual reference for how **CloudUnhideWatcher** watches folders, restores hidden files, and how **iCloud Tools** diagnoses and resolves sync issues.
+Visual reference for how **Resurrect** watches folders, restores hidden files, and how **iCloud Tools** diagnoses and resolves sync issues.
 
 ## Application lifecycle
 
@@ -49,7 +49,7 @@ iCloud sometimes re-applies `UF_HIDDEN` seconds after the app clears it. The pin
 
 ```mermaid
 sequenceDiagram
-  participant App as CloudUnhideWatcher
+  participant App as Resurrect
   participant FS as Filesystem
   participant iCloud as iCloud sync agent
   App->>FS: Clear hidden on path
@@ -70,12 +70,12 @@ flowchart TD
   OK -->|yes| Run[Start monitoring]
   OK -->|no| UI[Menu: Needs FDA + one-time alert]
   UI --> Open[Open FDA settings / Reveal app in Finder]
-  Open --> Grant[User enables CloudUnhideWatcher in FDA]
+  Open --> Grant[User enables Resurrect in FDA]
   Grant --> Relaunch[Quit and relaunch]
   Relaunch --> Probe
 ```
 
-Install from `/Applications/CloudUnhideWatcher.app` so FDA lists the correct app name (not `swift`).
+Install from `/Applications/Resurrect.app` so FDA lists the correct app name (not `swift`).
 
 ## Operator troubleshooting flow
 
@@ -131,7 +131,7 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-  subgraph app [CloudUnhideWatcher handles]
+  subgraph app [Resurrect handles]
     H[Clear local hidden flags — iCloud + optional local paths]
     W[Watch and re-clear pin paths]
     T[Run iCloud diagnose / merge toolkit]

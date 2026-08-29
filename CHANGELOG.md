@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to **CloudUnhideWatcher** are documented here.
+All notable changes to **Resurrect** are documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -8,13 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Documentation
 
 - [Docs index](docs/README.md)
-- [Wiki home](https://github.com/roto31/CloudUnhideWatcher/wiki)
-- [Getting Started](https://github.com/roto31/CloudUnhideWatcher/wiki/Getting-Started)
+- [Wiki home](https://github.com/roto31/Resurrect/wiki)
+- [Getting Started](https://github.com/roto31/Resurrect/wiki/Getting-Started)
 - [Troubleshooting](docs/troubleshooting.md)
 - [iCloud Tools](docs/icloud-tools.md)
 - [Local hidden files](docs/local-hidden-files.md)
 
 ## [Unreleased]
+
+### Changed
+- Renamed CloudUnhideWatcher to Resurrect. New bundle identifier is
+  `com.resurrect`. Existing users will need to re-grant Full Disk
+  Access after updating, since macOS ties that permission to the bundle
+  identifier. Log file moved from `icloud-unhide-watcher.log` to
+  `resurrect.log`. Re-enable Launch at Login. Settings migrate automatically
+  from `com.cloudunhidewatcher.settings` and `com.ruter.cloudunhidewatcher.settings`.
 
 ## [1.4.1] - 2026-08-29
 

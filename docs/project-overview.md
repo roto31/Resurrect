@@ -2,13 +2,13 @@
 
 ## Purpose
 
-**CloudUnhideWatcher** is a macOS menu bar utility that mitigates a specific iCloud Drive symptom: user files under Desktop and Documents marked hidden after sync conflicts or failed materialization (dataless/evicted placeholders).
+**Resurrect** is a macOS menu bar utility that mitigates a specific iCloud Drive symptom: user files under Desktop and Documents marked hidden after sync conflicts or failed materialization (dataless/evicted placeholders).
 
 The app watches those folders and clears hidden flags on eligible user content so Finder shows files again.
 
 ```mermaid
 flowchart LR
-  Problem[iCloud marks files hidden] --> App[CloudUnhideWatcher]
+  Problem[iCloud marks files hidden] --> App[Resurrect]
   App --> Mitigate[Clear hidden flags continuously]
   Mitigate --> Finder[Files visible in Finder]
   Problem --> RootCause[Sync conflicts / multi-Mac Desktop]
@@ -50,7 +50,7 @@ flowchart LR
 - macOS 13.0 (Ventura) or later
 - iCloud Drive with Desktop & Documents folders
 - Full Disk Access recommended
-- Signed, notarized build from [Releases](https://github.com/roto31/CloudUnhideWatcher/releases) for distribution
+- Signed, notarized build from [Releases](https://github.com/roto31/Resurrect/releases) for distribution
 
 ## Related
 

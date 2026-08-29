@@ -1,9 +1,9 @@
 # iCloud Tools
 
-CloudUnhideWatcher bundles the **iCloud Conflict Toolkit** inside the app:
+Resurrect bundles the **iCloud Conflict Toolkit** inside the app:
 
 ```
-/Applications/CloudUnhideWatcher.app/Contents/Resources/Scripts/
+/Applications/Resurrect.app/Contents/Resources/Scripts/
 ├── icloud_conflict_toolkit.sh   # unified iCloud toolkit (primary)
 ├── local_hidden_toolkit.sh      # local (non-iCloud) hidden files (v1.3.0+)
 ├── diagnose_rehide.sh           # legacy wrapper → diagnose
@@ -87,7 +87,7 @@ flowchart LR
 ## Terminal equivalents
 
 ```bash
-TOOLKIT="/Applications/CloudUnhideWatcher.app/Contents/Resources/Scripts/icloud_conflict_toolkit.sh"
+TOOLKIT="/Applications/Resurrect.app/Contents/Resources/Scripts/icloud_conflict_toolkit.sh"
 
 bash "${TOOLKIT}" diagnose
 bash "${TOOLKIT}" report
@@ -100,7 +100,7 @@ bash "${TOOLKIT}" resolve   # interactive — run in Terminal
 Legacy wrappers (same behavior):
 
 ```bash
-SCRIPTS="/Applications/CloudUnhideWatcher.app/Contents/Resources/Scripts"
+SCRIPTS="/Applications/Resurrect.app/Contents/Resources/Scripts"
 bash "${SCRIPTS}/diagnose_rehide.sh"
 bash "${SCRIPTS}/merge_icloud_conflicts.sh"           # → scan
 bash "${SCRIPTS}/merge_icloud_conflicts.sh" --apply   # → apply

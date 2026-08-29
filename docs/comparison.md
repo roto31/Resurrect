@@ -1,18 +1,18 @@
-# CloudUnhideWatcher vs similar tools
+# Resurrect vs similar tools
 
 Honest comparison for operators deciding whether this app fits their workflow.
 
 ## Comparison table
 
-| Tool / approach | What it does | CloudUnhideWatcher overlap |
+| Tool / approach | What it does | Resurrect overlap |
 |-----------------|--------------|----------------------------|
-| **CloudUnhideWatcher** | Watches iCloud Desktop/Documents for wrongly hidden files; optional iCloud conflict toolkit; optional local hidden assist | — |
+| **Resurrect** | Watches iCloud Desktop/Documents for wrongly hidden files; optional iCloud conflict toolkit; optional local hidden assist | — |
 | **Hidden Files Toggle** (and similar menu-bar toggles) | Shows/hides dotfiles globally via `chflags` | Does not watch iCloud continuously or merge conflict folders |
 | **Manual `chflags nohidden`** | One-off unhide on chosen paths | No monitoring, no conflict-folder workflows |
 | **iCloud Sync Doctor** (third-party) | Deep `bird` / brctl diagnostics | Different focus — sync daemon health, not UF_HIDDEN + conflict merge |
 | **icloud-tools CLI** (shell) | Power-user conflict toolkit | Same engine as bundled **iCloud Tools**; app adds menu bar watcher + guided Repair |
 
-## When to use CloudUnhideWatcher
+## When to use Resurrect
 
 - iCloud Desktop/Documents files keep disappearing from Finder because of hidden flags.
 - You have `Desktop - <hostname>` / `Documents - <hostname>` conflict folders after sync issues.

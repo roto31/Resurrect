@@ -1,6 +1,6 @@
 # Settings Reference
 
-Open **Settings…** from the menu bar (⌘,) or choose it after clicking the eye icon. All controls write to `UserDefaults` under `com.cloudunhidewatcher.settings.*` and apply **live** where possible. When a setting affects FSEvents or watch roots, the app posts `appSettingsDidChange` and **restarts the filesystem monitor** automatically.
+Open **Settings…** from the menu bar (⌘,) or choose it after clicking the eye icon. All controls write to `UserDefaults` under `com.resurrect.settings.*` and apply **live** where possible. When a setting affects FSEvents or watch roots, the app posts `appSettingsDidChange` and **restarts the filesystem monitor** automatically.
 
 The window scrolls on smaller displays. Screenshots below use fictional paths (`/Users/alex/...`).
 
@@ -16,7 +16,7 @@ The window scrolls on smaller displays. Screenshots below use fictional paths (`
 
 ## Monitoring
 
-Controls the core iCloud Desktop & Documents watcher — the primary reason most users install CloudUnhideWatcher.
+Controls the core iCloud Desktop & Documents watcher — the primary reason most users install Resurrect.
 
 | Control | Default | Range / type | What it does | How it affects the app |
 |---------|---------|--------------|--------------|------------------------|
@@ -56,7 +56,7 @@ The monitor has no iCloud paths. Unless **Local hidden files → Continuously mo
 
 | Control | Default | What it does | How it affects the app |
 |---------|---------|--------------|------------------------|
-| **Enable file logging** | On | Toggles `FileLogger.shared.isEnabled`. | **On:** App writes timestamped lines to `~/Library/Logs/icloud-unhide-watcher.log` (launches, restores, FDA errors, conflict-folder warnings). **Off:** No file append; unified logging in **Console.app** may still show subsystem `com.cloudunhidewatcher` if enabled by macOS. Toolkit scripts always write separate logs under `~/Library/Logs/CloudUnhideWatcher/`. |
+| **Enable file logging** | On | Toggles `FileLogger.shared.isEnabled`. | **On:** App writes timestamped lines to `~/Library/Logs/resurrect.log` (launches, restores, FDA errors, conflict-folder warnings). **Off:** No file append; unified logging in **Console.app** may still show subsystem `com.resurrect` if enabled by macOS. Toolkit scripts always write separate logs under `~/Library/Logs/Resurrect/`. |
 | **Open Log in Finder** | Button | Opens Finder with the app log file selected. | Does not change settings. Uses `FileLogger.defaultLogURL()`. |
 
 iCloud **Diagnose** reads the app log for re-hide contention when file logging has been on.
@@ -71,10 +71,10 @@ These controls do not change watch behavior; they help you grant **Full Disk Acc
 |---------|----------------|
 | *(instruction text)* | Reminds you to enable the app in FDA and **relaunch** after granting. |
 | **Open Full Disk Access Settings…** | **System Settings → Privacy & Security → Full Disk Access** (`Privacy_AllFiles`). |
-| **Reveal CloudUnhideWatcher in Finder** | Finder with `/Applications/CloudUnhideWatcher.app` selected — drag into FDA **+** list. |
+| **Reveal Resurrect in Finder** | Finder with `/Applications/Resurrect.app` selected — drag into FDA **+** list. |
 | **Installed at:** | Read-only install path from `AppIdentity.installedPath`. |
 
-Without FDA, permission probe fails, the status line shows **Enable CloudUnhideWatcher in Full Disk Access**, and scans may not reach iCloud-synced content. See [Getting Started](getting-started.md).
+Without FDA, permission probe fails, the status line shows **Enable Resurrect in Full Disk Access**, and scans may not reach iCloud-synced content. See [Getting Started](getting-started.md).
 
 ---
 
@@ -83,7 +83,7 @@ Without FDA, permission probe fails, the status line shows **Enable CloudUnhideW
 | Control | Default | What it does | How it affects the app |
 |---------|---------|--------------|------------------------|
 | **Launch at Login** | Varies | Registers or removes login item via `SMAppService` (macOS 13+). | **On:** App starts at user login — monitoring (and FDA prompt if needed) begin without manual launch. **Off:** You must start the app from Applications or the menu bar after each login. Checkbox refreshes when the Settings window opens to match actual registration. |
-| **Version** | — | Read-only `Version X.Y.Z (com.cloudunhidewatcher)`. | No runtime effect. |
+| **Version** | — | Read-only `Version X.Y.Z (com.resurrect)`. | No runtime effect. |
 
 ---
 

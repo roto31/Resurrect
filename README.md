@@ -1,33 +1,33 @@
-# CloudUnhideWatcher
+# Resurrect
 
-**CloudUnhideWatcher** is a macOS menu bar app that watches iCloud Drive Desktop & Documents and automatically clears the hidden flag from user files that iCloud has marked hidden — typically after a sync conflict or a failed/evicted-file (dataless) materialization.
+**Resurrect** is a macOS menu bar app that watches iCloud Drive Desktop & Documents and automatically clears the hidden flag from user files that iCloud has marked hidden — typically after a sync conflict or a failed/evicted-file (dataless) materialization.
 
 **This is a mitigation for a symptom, not a fix for the underlying iCloud sync problem.** If files keep re-hiding, see [Troubleshooting](docs/troubleshooting.md).
 
 ## Download
 
-Install from [GitHub Releases](https://github.com/roto31/CloudUnhideWatcher/releases):
+Install from [GitHub Releases](https://github.com/roto31/Resurrect/releases):
 
-1. Download `CloudUnhideWatcher-<version>-macos.dmg`
-2. Open the DMG and drag **CloudUnhideWatcher** to Applications
+1. Download `Resurrect-<version>-macos.dmg`
+2. Open the DMG and drag **Resurrect** to Applications
 3. Launch from Applications (macOS 13+)
 
 Verify the SHA-256 checksum in the release assets before installing when checksums are published.
 
 ## Quick start
 
-1. Install **CloudUnhideWatcher** to `/Applications/`
+1. Install **Resurrect** to `/Applications/`
 2. Launch the app — an eye icon appears in the menu bar
-3. Grant **Full Disk Access** when prompted (see [Getting Started](https://github.com/roto31/CloudUnhideWatcher/wiki/Getting-Started))
+3. Grant **Full Disk Access** when prompted (see [Getting Started](https://github.com/roto31/Resurrect/wiki/Getting-Started))
 4. The app watches Desktop and Documents and unhides eligible files automatically
 
-See the [Getting Started](https://github.com/roto31/CloudUnhideWatcher/wiki/Getting-Started) wiki page for the full walkthrough.
+See the [Getting Started](https://github.com/roto31/Resurrect/wiki/Getting-Started) wiki page for the full walkthrough.
 
 ## Documentation
 
 | Resource | Link |
 |----------|------|
-| **GitHub Wiki** | [github.com/roto31/CloudUnhideWatcher/wiki](https://github.com/roto31/CloudUnhideWatcher/wiki) |
+| **GitHub Wiki** | [github.com/roto31/Resurrect/wiki](https://github.com/roto31/Resurrect/wiki) |
 | **Docs folder** | [docs/README.md](docs/README.md) |
 | **Operator guide** | [docs/operator-guide.md](docs/operator-guide.md) |
 | **iCloud Tools** | [docs/icloud-tools.md](docs/icloud-tools.md) |

@@ -1,10 +1,10 @@
 # Menu Bar Navigation
 
-CloudUnhideWatcher runs as a **menu bar only** app (no Dock icon). Click the **eye** icon in the menu bar to open the main menu.
+Resurrect runs as a **menu bar only** app (no Dock icon). Click the **eye** icon in the menu bar to open the main menu.
 
 ## Main menu
 
-![CloudUnhideWatcher main menu — status, Scan Now, Pause, iCloud Tools, FDA, Settings, Quit](images/menu-bar-main.jpg)
+![Resurrect main menu — status, Scan Now, Pause, iCloud Tools, FDA, Settings, Quit](images/menu-bar-main.jpg)
 
 | Item | Shortcut | What it does | Opens |
 |------|----------|--------------|-------|
@@ -14,10 +14,10 @@ CloudUnhideWatcher runs as a **menu bar only** app (no Dock icon). Click the **e
 | **Repair iCloud Folders…** | — | Guided diagnose + scan with plain-language next steps (v1.4.0+). | Repair outcome dialog → optional apply or in-app resolve. |
 | **iCloud Tools** | → | Submenu — advanced toolkit commands (hidden until enabled). | Submenu (below). |
 | **Local Tools** | → | Submenu — **local hidden file** toolkit (when feature is enabled in your build). | Submenu (below). |
-| **Enable CloudUnhideWatcher in Full Disk Access…** | — | Shown when CloudDocs paths are not readable. | **System Settings → Privacy & Security → Full Disk Access**. |
+| **Enable Resurrect in Full Disk Access…** | — | Shown when CloudDocs paths are not readable. | **System Settings → Privacy & Security → Full Disk Access**. |
 | **Settings…** | ⌘, | Preferences window. | [Settings window](toolkit-reports-and-dialogs.md#settings-window). |
 | **Help** | → | Search embedded docs, Getting Started, Troubleshooting (v1.4.0+). | Help window or topic viewer; **Search Help…** is ⌘?. |
-| **Quit CloudUnhideWatcher** | ⌘Q | Exits and stops all monitoring. | Nothing. |
+| **Quit Resurrect** | ⌘Q | Exits and stops all monitoring. | Nothing. |
 
 ### Status line examples
 
@@ -48,7 +48,7 @@ By default only a short note and **Enable Advanced iCloud Tools…** are shown. 
 
 If another toolkit job is already running, you see **[Maintenance Busy](toolkit-reports-and-dialogs.md#maintenance-busy)** instead.
 
-Menu items run the bundled script inside the app bundle with `CUW_MAINTENANCE_FROM_APP=1` so diagnose does not false-fail “app not running.”
+Menu items run the bundled script inside the app bundle with `RESURRECT_MAINTENANCE_FROM_APP=1` so diagnose does not false-fail “app not running.”
 
 ## Local Tools submenu
 
@@ -86,7 +86,7 @@ Screenshots and button reference:
 
 ### First install
 
-1. Main menu → **Enable CloudUnhideWatcher in Full Disk Access…**
+1. Main menu → **Enable Resurrect in Full Disk Access…**
 2. Grant FDA in System Settings, relaunch
 3. Main menu → **Settings…** → enable **Launch at Login** (optional)
 

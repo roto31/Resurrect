@@ -1,6 +1,6 @@
 # Architecture
 
-High-level design of **CloudUnhideWatcher** (consumer view).
+High-level design of **Resurrect** (consumer view).
 
 ## System context
 
@@ -8,7 +8,7 @@ High-level design of **CloudUnhideWatcher** (consumer view).
 flowchart TB
   subgraph macOS [macOS]
     Menu[Menu bar app]
-    Core[CloudUnhideCore library]
+    Core[ResurrectCore library]
     Menu --> Core
   end
   subgraph paths [Watched paths]
@@ -36,7 +36,7 @@ flowchart TB
 | Filesystem watcher | `FSEventStream` recursive watch on Desktop & Documents with restart/backoff |
 | Restore logic | Eligibility checks, dual-clear hidden flags, pin watchdog for contested paths |
 | Permission probe | Detects denied CloudDocs access; surfaces FDA guidance |
-| File logger | Optional append-only log at `~/Library/Logs/icloud-unhide-watcher.log` |
+| File logger | Optional append-only log at `~/Library/Logs/resurrect.log` |
 | Menu bar UI | `NSStatusItem` + menu (no Dock icon) |
 | Login item | `SMAppService` launch-at-login (macOS 13+) |
 | iCloud Tools | Runs bundled **iCloud Conflict Toolkit** from app Resources |
@@ -99,7 +99,7 @@ Restored paths must be:
 
 - Developer ID signed + notarized `.app` in release DMG
 - Unsandboxed (required for Apple's iCloud container)
-- Bundle ID: `com.cloudunhidewatcher`
+- Bundle ID: `com.resurrect`
 
 ## Related
 

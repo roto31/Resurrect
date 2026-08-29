@@ -1,8 +1,8 @@
-# CloudUnhideWatcher — Documentation
+# Resurrect — Documentation
 
-User documentation for the **CloudUnhideWatcher** macOS application.
+User documentation for the **Resurrect** macOS application.
 
-**Install:** [GitHub Releases](https://github.com/roto31/CloudUnhideWatcher/releases) — download `CloudUnhideWatcher-<version>-macos.dmg`.
+**Install:** [GitHub Releases](https://github.com/roto31/Resurrect/releases) — download `Resurrect-<version>-macos.dmg`.
 
 ## Start here
 
@@ -37,4 +37,4 @@ User documentation for the **CloudUnhideWatcher** macOS application.
 |------|-------------|
 | [Proprietary Notice](legal/proprietary-notice.md) | License terms |
 
-Wiki mirror: [GitHub Wiki](https://github.com/roto31/CloudUnhideWatcher/wiki) · [CHANGELOG](../CHANGELOG.md)
+Wiki mirror: [GitHub Wiki](https://github.com/roto31/Resurrect/wiki) · [CHANGELOG](../CHANGELOG.md)

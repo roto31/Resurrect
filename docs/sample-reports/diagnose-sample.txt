@@ -6,9 +6,9 @@
 DIAGNOSE — local iCloud hidden-file / sync health check on: Alexs-MacBook-Pro
 ==================================================================
 
---- CloudUnhideWatcher install ---
-  ✅ PASS: App found at /Applications/CloudUnhideWatcher.app
-  ✅ PASS: CloudUnhideWatcher process is running
+--- Resurrect install ---
+  ✅ PASS: App found at /Applications/Resurrect.app
+  ✅ PASS: Resurrect process is running
 
 --- Full Disk Access / CloudDocs container ---
   ✅ PASS: CloudDocs container is readable
@@ -31,7 +31,7 @@ DIAGNOSE — local iCloud hidden-file / sync health check on: Alexs-MacBook-Pro
   ✅ PASS: No .hidden manifest in /Users/alex/Desktop
   ✅ PASS: No .hidden manifest in /Users/alex/Documents
 
---- CloudUnhideWatcher log analysis ---
+--- Resurrect log analysis ---
      (analyzing log since last app launch at line 142)
      External re-hide events (current session): 0
      Pin re-clear events:                       0

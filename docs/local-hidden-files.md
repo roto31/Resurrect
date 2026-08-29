@@ -1,6 +1,6 @@
 # Local hidden files (non-iCloud)
 
-CloudUnhideWatcher **v1.3.0+** adds an **opt-in** feature for folders **outside** iCloud Desktop & Documents. Default is **off** — iCloud monitoring is unchanged.
+Resurrect **v1.3.0+** adds an **opt-in** feature for folders **outside** iCloud Desktop & Documents. Default is **off** — iCloud monitoring is unchanged.
 
 ## Architecture overview
 
@@ -158,7 +158,7 @@ flowchart TD
 Bundled script path:
 
 ```bash
-TOOLKIT="/Applications/CloudUnhideWatcher.app/Contents/Resources/Scripts/local_hidden_toolkit.sh"
+TOOLKIT="/Applications/Resurrect.app/Contents/Resources/Scripts/local_hidden_toolkit.sh"
 bash "${TOOLKIT}" diagnose --paths-file ~/my-paths.txt
 bash "${TOOLKIT}" scan "/Users/you/Projects/MyApp"
 bash "${TOOLKIT}" apply --paths-file ~/my-paths.txt
@@ -177,15 +177,15 @@ bash "${TOOLKIT}" report --paths-file ~/my-paths.txt
 
 ## Full Disk Access
 
-Some local paths may require **Full Disk Access** for CloudUnhideWatcher — same as iCloud monitoring. Enable the app in **System Settings → Privacy & Security → Full Disk Access**.
+Some local paths may require **Full Disk Access** for Resurrect — same as iCloud monitoring. Enable the app in **System Settings → Privacy & Security → Full Disk Access**.
 
 ## State and logs
 
 | Item | Location |
 |------|----------|
-| Toolkit state | `~/.cloudunhide_local_state/` |
-| Full script output | `~/Library/Logs/CloudUnhideWatcher/local_hidden_toolkit.sh.*.log` |
-| App file log | `~/Library/Logs/icloud-unhide-watcher.log` |
+| Toolkit state | `~/.resurrect_local_state/` |
+| Full script output | `~/Library/Logs/Resurrect/local_hidden_toolkit.sh.*.log` |
+| App file log | `~/Library/Logs/resurrect.log` |
 
 ## Related
 

@@ -20,7 +20,7 @@ See [Process Flows](process-flows.md) for full diagrams.
 
 ## Files keep re-hiding
 
-CloudUnhideWatcher clears local hidden flags; it does **not** fix upstream iCloud sync conflicts. If files re-hide within seconds, iCloud or another process is re-applying `UF_HIDDEN`.
+Resurrect clears local hidden flags; it does **not** fix upstream iCloud sync conflicts. If files re-hide within seconds, iCloud or another process is re-applying `UF_HIDDEN`.
 
 Work through these steps in order:
 
@@ -31,12 +31,12 @@ Work through these steps in order:
 Or from Terminal:
 
 ```bash
-TOOLKIT="/Applications/CloudUnhideWatcher.app/Contents/Resources/Scripts/icloud_conflict_toolkit.sh"
+TOOLKIT="/Applications/Resurrect.app/Contents/Resources/Scripts/icloud_conflict_toolkit.sh"
 bash "${TOOLKIT}" diagnose
 bash "${TOOLKIT}" report    # diagnose + scan
 ```
 
-The report checks install path, FDA/CloudDocs access, hidden watch roots, hidden files, conflict folders, and log contention. Output is saved under `~/Library/Logs/CloudUnhideWatcher/`. See [fictional sample output](toolkit-reports-and-dialogs.md#sample-toolkit-reports-fictional).
+The report checks install path, FDA/CloudDocs access, hidden watch roots, hidden files, conflict folders, and log contention. Output is saved under `~/Library/Logs/Resurrect/`. See [fictional sample output](toolkit-reports-and-dialogs.md#sample-toolkit-reports-fictional).
 
 ### 2. Check for conflict folders
 
@@ -60,7 +60,7 @@ The toolkit **never deletes** conflict folders automatically. **Apply** never ov
 
 ### 4. When to stop chasing app bugs
 
-If diagnose shows low contention but Finder still flickers, or scan reports many **DIFFERS** rows, treat it as an iCloud sync problem (multi-Mac conflicts, dataless placeholders, materialization failures) — not a CloudUnhideWatcher defect.
+If diagnose shows low contention but Finder still flickers, or scan reports many **DIFFERS** rows, treat it as an iCloud sync problem (multi-Mac conflicts, dataless placeholders, materialization failures) — not a Resurrect defect.
 
 ## Local (non-iCloud) hidden files
 
@@ -73,7 +73,7 @@ For files **outside** Desktop/Documents (project folders, Downloads subtrees, et
 5. For ongoing protection: **Continuously monitor selected local folders**
 
 ```bash
-TOOLKIT="/Applications/CloudUnhideWatcher.app/Contents/Resources/Scripts/local_hidden_toolkit.sh"
+TOOLKIT="/Applications/Resurrect.app/Contents/Resources/Scripts/local_hidden_toolkit.sh"
 bash "${TOOLKIT}" report --paths-file ~/my-local-paths.txt
 ```
 
@@ -90,9 +90,9 @@ See [Local hidden files](local-hidden-files.md) and [Process Flows — Local ass
 
 | Symptom | Fix |
 |---------|-----|
-| Menu shows "Needs Full Disk Access" | Enable FDA for `/Applications/CloudUnhideWatcher.app` |
+| Menu shows "Needs Full Disk Access" | Enable FDA for `/Applications/Resurrect.app` |
 | App not listed in FDA | Click **+**, select the installed app; do not run `swift run` |
-| FDA enabled but still denied | Reset TCC: `tccutil reset SystemPolicyAllFiles com.cloudunhidewatcher`, re-grant, relaunch |
+| FDA enabled but still denied | Reset TCC: `tccutil reset SystemPolicyAllFiles com.resurrect`, re-grant, relaunch |
 | ENOTDIR / path errors | Use signed build from `/Applications/`; ensure iCloud Desktop & Documents is enabled |
 
 ## Hidden Desktop or Documents root
@@ -105,9 +105,9 @@ The app rescans the full tree on coalesced FSEvents. Very large folders with fre
 
 ## Logs
 
-- File log: `~/Library/Logs/icloud-unhide-watcher.log`
-- iCloud Tools reports: `~/Library/Logs/CloudUnhideWatcher/`
-- Console: filter `com.cloudunhidewatcher`
+- File log: `~/Library/Logs/resurrect.log`
+- iCloud Tools reports: `~/Library/Logs/Resurrect/`
+- Console: filter `com.resurrect`
 
 ## Related
 

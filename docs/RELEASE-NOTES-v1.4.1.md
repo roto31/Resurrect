@@ -1,4 +1,4 @@
-## CloudUnhideWatcher v1.4.1
+## Resurrect v1.4.1
 
 Help viewer quality release — diagrams, tables, sidebar, and in-page links.
 
@@ -11,11 +11,11 @@ Help viewer quality release — diagrams, tables, sidebar, and in-page links.
 
 ### Install
 
-Download `CloudUnhideWatcher-1.4.1-macos.dmg`, drag to Applications, and relaunch. Bundle ID remains `com.cloudunhidewatcher` (same as v1.4.0).
+Download `Resurrect-1.4.1-macos.dmg`, drag to Applications, and relaunch. Bundle ID remains `com.resurrect` (same as v1.4.0).
 
 ### Documentation
 
-- [Getting Started](https://github.com/roto31/CloudUnhideWatcher/blob/main/docs/getting-started.md)
-- [Process Flows](https://github.com/roto31/CloudUnhideWatcher/blob/main/docs/process-flows.md)
-- [Settings Reference](https://github.com/roto31/CloudUnhideWatcher/blob/main/docs/settings.md)
-- [Wiki](https://github.com/roto31/CloudUnhideWatcher/wiki)
+- [Getting Started](https://github.com/roto31/Resurrect/blob/main/docs/getting-started.md)
+- [Process Flows](https://github.com/roto31/Resurrect/blob/main/docs/process-flows.md)
+- [Settings Reference](https://github.com/roto31/Resurrect/blob/main/docs/settings.md)
+- [Wiki](https://github.com/roto31/Resurrect/wiki)

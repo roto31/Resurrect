@@ -94,6 +94,11 @@ Screenshots and button reference:
 
 1. **Scan Now** (⌘S) after granting FDA
 
+### Quick manual unhide (local folder)
+
+1. **Settings → Assist with local hidden files** → **Add Folder…**
+2. **Local Tools → Apply Local Restore…** (or **Scan Now** if continuous watch is on)
+
 ## Keyboard shortcuts summary
 
 | Shortcut | Action |
@@ -108,5 +113,6 @@ Screenshots and button reference:
 - [Toolkit Reports & Dialogs](toolkit-reports-and-dialogs.md) — screenshots, buttons, sample logs
 - [Operator Guide](operator-guide.md) — settings detail and eligibility policy
 - [iCloud Tools](icloud-tools.md) — toolkit commands and safety rules
+- [Local hidden files](local-hidden-files.md) — opt-in local assist and diagrams
 - [Getting Started](getting-started.md) — install and FDA
 - [Troubleshooting](troubleshooting.md) — re-hide and conflict workflows

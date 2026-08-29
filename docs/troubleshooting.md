@@ -4,12 +4,15 @@
 
 ```mermaid
 flowchart TD
-  A[Files hidden or re-hiding] --> B[Run Diagnose or Full Report]
+  A[Files hidden or re-hiding] --> Where{Desktop/Documents or other folder?}
+  Where -->|Desktop/Documents| B[Run Diagnose or Full Report — iCloud Tools]
+  Where -->|Other local folder| L[Enable Local assist → Local Tools]
   B --> C{Conflict folders?}
   C -->|yes| D[Scan then Apply or Resolve]
   C -->|no| E{FDA / path errors?}
   E -->|yes| F[Fix FDA — see below]
   E -->|no| G[Likely iCloud sync — app is mitigating symptoms only]
+  L --> LD[Diagnose → Scan → Apply]
   D --> H[Verify after 1–2 days]
 ```
 
@@ -58,6 +61,30 @@ The toolkit **never deletes** conflict folders automatically. **Apply** never ov
 ### 4. When to stop chasing app bugs
 
 If diagnose shows low contention but Finder still flickers, or scan reports many **DIFFERS** rows, treat it as an iCloud sync problem (multi-Mac conflicts, dataless placeholders, materialization failures) — not a CloudUnhideWatcher defect.
+
+## Local (non-iCloud) hidden files
+
+For files **outside** Desktop/Documents (project folders, Downloads subtrees, etc.):
+
+1. **Settings → Assist with local hidden files** — enable
+2. **Add Folder…** — path must be under `$HOME`, not a system folder, not iCloud Desktop/Documents
+3. **Local Tools → Full Local Report…** — read-only check
+4. **Scan Local Folders (dry run)…** then **Apply Local Restore…** if needed
+5. For ongoing protection: **Continuously monitor selected local folders**
+
+```bash
+TOOLKIT="/Applications/CloudUnhideWatcher.app/Contents/Resources/Scripts/local_hidden_toolkit.sh"
+bash "${TOOLKIT}" report --paths-file ~/my-local-paths.txt
+```
+
+| Symptom | Likely cause | Action |
+|---------|--------------|--------|
+| Local Tools menu missing | Assist toggle off | Enable in Settings |
+| “Cannot Add Folder” | Path outside home or overlaps iCloud | Pick a different folder |
+| Dotfiles still hidden | By design | Do not expect restore — rename manually if needed |
+| `.hidden` manifest reported | Legacy Unix hide list | Edit manifest manually — app does not modify it |
+
+See [Local hidden files](local-hidden-files.md) and [Process Flows — Local assist](process-flows.md#local-hidden-file-assist-v130).
 
 ## Full Disk Access issues
 

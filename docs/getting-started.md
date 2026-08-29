@@ -47,6 +47,17 @@ After permissions are granted:
 - Use **Scan Now** for an immediate full scan
 - Open **Settings…** (⌘,) for debounce, logging, and launch-at-login
 
+### Optional: local hidden files (v1.3.0+)
+
+For files hidden **outside** iCloud Desktop/Documents (e.g. a project folder):
+
+1. **Settings → Assist with local hidden files** (enable)
+2. **Add Folder…** — choose folders under your home directory
+3. Use **Local Tools** → **Diagnose** or **Full Local Report**
+4. Optionally enable **Continuously monitor selected local folders** for background FSEvents
+
+See [Local hidden files](local-hidden-files.md) and [Process Flows](process-flows.md#local-hidden-file-assist-v130).
+
 ## Launch at login
 
 In **Settings → General**, enable **Launch at Login** so the watcher starts after reboot.
@@ -62,5 +73,6 @@ In **Settings → General**, enable **Launch at Login** so the watcher starts af
 - [Menu Bar Navigation](navigation.md) — screenshots and every menu item
 - [Operator Guide](operator-guide.md) — day-to-day use
 - [Process Flows](process-flows.md) — diagrams of restore and diagnose flows
+- [Local hidden files](local-hidden-files.md) — opt-in non-iCloud folders
 - [Troubleshooting](troubleshooting.md) — if files keep re-hiding
 - [iCloud Tools](icloud-tools.md) — diagnose and merge conflict folders

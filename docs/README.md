@@ -13,13 +13,14 @@ User documentation for the **CloudUnhideWatcher** macOS application.
 | [Toolkit Reports & Dialogs](toolkit-reports-and-dialogs.md) | Result sheets, alerts, fictional sample logs |
 | [Operator Guide](operator-guide.md) | Settings, launch-at-login, eligibility |
 | [iCloud Tools](icloud-tools.md) | iCloud Conflict Toolkit (diagnose, scan, apply, verify, resolve) |
+| [Local hidden files](local-hidden-files.md) | Opt-in local folder assist (v1.3.0+) — settings, Local Tools, diagrams |
 | [Troubleshooting](troubleshooting.md) | Re-hide loops, conflict folders, FDA |
 
 ## Diagrams
 
 | Page | Description |
 |------|-------------|
-| [Process Flows](process-flows.md) | Restore pipeline, pin watchdog, FDA, diagnose & merge flows |
+| [Process Flows](process-flows.md) | Restore pipeline, pin watchdog, FDA, diagnose & merge flows, **local assist** |
 
 ## Reference
 

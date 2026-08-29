@@ -132,23 +132,92 @@ flowchart LR
 ```mermaid
 flowchart TB
   subgraph app [CloudUnhideWatcher handles]
-    H[Clear local hidden flags]
+    H[Clear local hidden flags — iCloud + optional local paths]
     W[Watch and re-clear pin paths]
-    T[Run diagnose / merge toolkit]
+    T[Run iCloud diagnose / merge toolkit]
+    L[Run local hidden toolkit — opt-in]
   end
   subgraph user [Operator / iCloud fixes]
     M[Merge conflict folders across Macs]
     I[iCloud sync / materialization issues]
     F[FDA and correct install path]
+    LH[Edit .hidden manifests manually]
   end
   H --> Visible[Files visible in Finder]
+  L --> Visible
   M --> Visible
   I --> Visible
+```
+
+## Local Hidden File Assist (v1.3.0+)
+
+Optional feature for **non-iCloud** folders. Off by default. See [Local hidden files](local-hidden-files.md) for full reference.
+
+### Activation and runtime merge
+
+```mermaid
+flowchart TD
+  Toggle[Settings: Assist with local hidden files ON] --> Menu[Local Tools menu visible]
+  Toggle --> Paths[Add folders under $HOME]
+  Paths --> Cont{Continuous watch ON?}
+  Cont -->|yes| Merge[mergedWatchPaths = iCloud + local]
+  Cont -->|no| iOnly[iCloud FSEvents only]
+  Merge --> Monitor[FSEvents on iCloud + local paths]
+  Monitor --> Scan[runScan all configured directories]
+  Toggle --> Toolkit[Local Tools menu → local_hidden_toolkit.sh]
+```
+
+### Local toolkit vs in-app restore
+
+```mermaid
+flowchart LR
+  subgraph menu [Menu Local Tools]
+    D[diagnose]
+    S[scan]
+    A[apply]
+    R[report]
+  end
+  subgraph swift [App runtime when continuous watch ON]
+    FS[FSEvents]
+    HR[HiddenFileRestorer.scan]
+  end
+  D --> Shell[local_hidden_toolkit.sh]
+  S --> Shell
+  A --> Shell
+  R --> Shell
+  FS --> HR
+  Shell --> Clear[chflags + SetFile]
+  HR --> Clear2[resourceValues + chflags + pin]
+```
+
+| Path | Trigger | Engine |
+|------|---------|--------|
+| Background restore | FSEvents or **Scan Now** | Swift `HiddenFileRestorer` (with pin watchdog) |
+| Menu toolkit | **Local Tools** items | Bash `local_hidden_toolkit.sh` |
+| One-off folder | No saved paths → folder picker | Toolkit with `--paths-file` manifest |
+
+### Local troubleshooting flow
+
+```mermaid
+flowchart TD
+  Symptom[Files hidden outside Desktop/Documents] --> Enable[Settings → Assist with local hidden files]
+  Enable --> Add[Add Folder…]
+  Add --> Diag[Local Tools → Diagnose or Full Local Report]
+  Diag --> Hidden{Eligible hidden items?}
+  Hidden -->|yes| Scan[Scan Local Folders dry run]
+  Scan --> Apply[Apply Local Restore]
+  Hidden -->|no| Dotfile{Dotfiles or .hidden manifest?}
+  Dotfile -->|yes| Manual[Manual fix — out of scope]
+  Dotfile -->|no| Done[No action needed]
+  Apply --> Watch{Need ongoing watch?}
+  Watch -->|yes| Cont[Enable Continuously monitor]
+  Watch -->|no| Done
 ```
 
 ## Related
 
 - [Architecture](architecture.md)
+- [Local hidden files](local-hidden-files.md)
 - [iCloud Tools](icloud-tools.md)
 - [Troubleshooting](troubleshooting.md)
 - [Getting Started](getting-started.md)

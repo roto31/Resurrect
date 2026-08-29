@@ -17,7 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Docs
-- [Menu Bar Navigation](docs/navigation.md) with menu screenshots; images under `docs/images/`.
+- [Local hidden files](docs/local-hidden-files.md) — architecture, settings, Local Tools commands, path validation, continuous watch vs toolkit (Mermaid diagrams).
+- [Process Flows](docs/process-flows.md) — local assist activation, runtime merge, toolkit vs `HiddenFileRestorer`, local troubleshooting flow.
+- [Architecture](docs/architecture.md), [Operator Guide](docs/operator-guide.md), [Getting Started](docs/getting-started.md), [Troubleshooting](docs/troubleshooting.md) — cross-links and local-assist sections.
+- Wiki: [Local Hidden Files](https://github.com/roto31/CloudUnhideWatcher/wiki/Local-Hidden-Files) page added via `Scripts/sync_public_wiki.sh`.
 
 ## [1.3.0] - 2026-08-29
 

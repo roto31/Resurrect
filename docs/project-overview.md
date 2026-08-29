@@ -14,6 +14,8 @@ flowchart LR
   Problem --> RootCause[Sync conflicts / multi-Mac Desktop]
   RootCause --> Tools[iCloud Tools diagnose + merge]
   Tools --> Finder
+  LocalProb[chflags hidden on local folder] --> LocalAssist[Local Tools — opt-in]
+  LocalAssist --> Finder
 ```
 
 ## What it is not
@@ -37,6 +39,7 @@ flowchart LR
 | Pin watchdog | Re-clears paths iCloud keeps re-hiding (up to 120s) |
 | Menu bar control | Status, scan, pause, settings, quit |
 | iCloud Tools | Bundled iCloud Conflict Toolkit (diagnose, scan, apply, verify, resolve) |
+| Local hidden assist | Opt-in local folder toolkit + optional continuous watch (v1.3.0+) |
 | Launch at login | `SMAppService` on macOS 13+ |
 
 ## Requirements
@@ -49,6 +52,7 @@ flowchart LR
 ## Related
 
 - [Process Flows](process-flows.md)
+- [Local hidden files](local-hidden-files.md)
 - [Architecture](architecture.md)
 - [Getting Started](getting-started.md)
 - [Troubleshooting](troubleshooting.md)

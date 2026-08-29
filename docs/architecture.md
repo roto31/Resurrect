@@ -14,6 +14,7 @@ flowchart TB
   subgraph paths [Watched paths]
     Desktop[iCloud Desktop]
     Documents[iCloud Documents]
+    LocalPaths[Local folders — opt-in v1.3.0+]
   end
   subgraph external [External]
     iCloud[iCloud sync / fileproviderd]
@@ -21,6 +22,7 @@ flowchart TB
   end
   Core --> Desktop
   Core --> Documents
+  Core --> LocalPaths
   iCloud --> Desktop
   iCloud --> Documents
   Core --> Finder
@@ -38,6 +40,8 @@ flowchart TB
 | Menu bar UI | `NSStatusItem` + menu (no Dock icon) |
 | Login item | `SMAppService` launch-at-login (macOS 13+) |
 | iCloud Tools | Runs bundled **iCloud Conflict Toolkit** from app Resources |
+| Local Tools | Runs bundled **local hidden toolkit** when assist is enabled (v1.3.0+) |
+| LocalWatchResolver | Validates user local paths under `$HOME`; excludes system prefixes and iCloud overlap |
 
 Core logic lives in a testable library; the menu bar app is a thin AppKit shell.
 
@@ -45,7 +49,7 @@ Core logic lives in a testable library; the menu bar app is a thin AppKit shell.
 
 ```mermaid
 flowchart TD
-  FSEvents[FSEvents on Desktop/Documents]
+  FSEvents[FSEvents on Desktop/Documents + optional local paths]
   Debounce[Debounce ~1.5s]
   Scan[Full recursive scan]
   Eligible{Eligible user file?}
@@ -55,6 +59,8 @@ flowchart TD
   Eligible -->|yes| Clear
   Clear --> Pin
 ```
+
+Local folders join the FSEvents stream only when **Assist with local hidden files** and **Continuously monitor selected local folders** are both enabled in Settings. See [Local hidden files](local-hidden-files.md).
 
 FSEvents fire on many change types, not only hidden-flag changes. The app rescans the watched trees rather than interpreting individual event flags — simple and robust for iCloud sync bursts.
 
@@ -98,5 +104,6 @@ Restored paths must be:
 ## Related
 
 - [Process Flows](process-flows.md)
+- [Local hidden files](local-hidden-files.md)
 - [Project Overview](project-overview.md)
 - [Operator Guide](operator-guide.md)

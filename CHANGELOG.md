@@ -16,13 +16,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-08-29
+
 ### Changed
-- Renamed CloudUnhideWatcher to Resurrect. New bundle identifier is
-  `com.resurrect`. Existing users will need to re-grant Full Disk
-  Access after updating, since macOS ties that permission to the bundle
-  identifier. Log file moved from `icloud-unhide-watcher.log` to
-  `resurrect.log`. Re-enable Launch at Login. Settings migrate automatically
-  from `com.cloudunhidewatcher.settings` and `com.ruter.cloudunhidewatcher.settings`.
+- **Breaking:** Renamed CloudUnhideWatcher to Resurrect. Bundle ID is now
+  `com.resurrect`. Re-grant Full Disk Access, re-enable Launch at Login, and
+  install `Resurrect-1.5.0-macos.dmg` to `/Applications/Resurrect.app`. Log
+  file is `~/Library/Logs/resurrect.log`. Settings migrate automatically.
 
 ## [1.4.1] - 2026-08-29
 

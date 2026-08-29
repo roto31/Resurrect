@@ -1,0 +1,154 @@
+# Process Flows
+
+Visual reference for how **CloudUnhideWatcher** watches folders, restores hidden files, and how **iCloud Tools** diagnoses and resolves sync issues.
+
+## Application lifecycle
+
+```mermaid
+flowchart LR
+  Launch[Launch app] --> FDA{CloudDocs accessible?}
+  FDA -->|no| Prompt[FDA alert + menu warning]
+  FDA -->|yes| Watch[Start FSEventStream]
+  Watch --> Idle[Menu: idle / watching]
+  Idle --> Event[FSEvents under Desktop/Documents]
+  Event --> Restore[Scan + restore hidden flags]
+  Restore --> Idle
+  Prompt --> FDA
+```
+
+## Hidden-file restore pipeline
+
+When a scan runs (on FSEvents or **Scan Now**), each path is evaluated and cleared if eligible.
+
+```mermaid
+flowchart TD
+  Start[Scan watch roots + children] --> RootClear[Clear hidden on root folders]
+  RootClear --> Walk[Walk directory tree]
+  Walk --> Check{Eligible?}
+  Check -->|no| Skip[Skip dotfiles, placeholders, system names]
+  Check -->|yes| Dual[Clear Finder isHidden + BSD UF_HIDDEN]
+  Dual --> Log[Log restore count]
+  Log --> Rehide{iCloud re-hides within 1s?}
+  Rehide -->|yes| Pin[Pin watchdog: 1s re-clear up to 120s]
+  Rehide -->|no| Done[Path stays visible]
+  Pin --> Done
+  Skip --> Walk
+```
+
+### Eligibility (what gets restored)
+
+| Included | Excluded |
+|----------|----------|
+| Regular files and folders under watch roots | Names starting with `.` |
+| User content in Desktop/Documents | `.icloud` placeholders |
+| Watch roots themselves if hidden | `.DS_Store`, `.Trash`, etc. |
+
+## Pin watchdog (re-hide fight)
+
+iCloud sometimes re-applies `UF_HIDDEN` seconds after the app clears it. The pin watchdog keeps clearing contested paths until they stay visible.
+
+```mermaid
+sequenceDiagram
+  participant App as CloudUnhideWatcher
+  participant FS as Filesystem
+  participant iCloud as iCloud sync agent
+  App->>FS: Clear hidden on path
+  iCloud->>FS: Re-apply UF_HIDDEN
+  App->>FS: Pin: clear every 1s
+  loop Up to 120s
+    App->>FS: Re-clear if hidden
+  end
+  App->>App: Release pin after 3 clean checks
+```
+
+## Full Disk Access flow
+
+```mermaid
+flowchart TD
+  Start[App launch] --> Probe[PermissionProbe on CloudDocs paths]
+  Probe --> OK{Read/write OK?}
+  OK -->|yes| Run[Start monitoring]
+  OK -->|no| UI[Menu: Needs FDA + one-time alert]
+  UI --> Open[Open FDA settings / Reveal app in Finder]
+  Open --> Grant[User enables CloudUnhideWatcher in FDA]
+  Grant --> Relaunch[Quit and relaunch]
+  Relaunch --> Probe
+```
+
+Install from `/Applications/CloudUnhideWatcher.app` so FDA lists the correct app name (not `swift`).
+
+## Operator troubleshooting flow
+
+Use this when files keep disappearing from Finder or re-hide repeatedly.
+
+```mermaid
+flowchart TD
+  Symptom[Files hidden or re-hiding] --> Diagnose[iCloud Tools: Diagnose or Full Report]
+  Diagnose --> Conflicts{Conflict folders found?}
+  Conflicts -->|no| PinOrSync[Check logs; likely iCloud materialization — not app bug]
+  Conflicts -->|yes| Scan[Scan Conflict Folders dry run]
+  Scan --> Unique{Mostly UNIQUE?}
+  Unique -->|yes| Apply[Apply — move UNIQUE only]
+  Unique -->|no| Differs{DIFFERS rows?}
+  Differs -->|yes| Resolve[Resolve Conflicting Files interactive]
+  Differs -->|no| Manual[Review IDENTICAL; manual cleanup later]
+  Apply --> Verify[Verify after 1–2 days]
+  Verify --> Regrown{REGROWN?}
+  Regrown -->|yes| OtherMac[Repeat on each Mac on same iCloud account]
+  Regrown -->|no| Done[Conflict flow complete]
+```
+
+## iCloud Tools command flow
+
+```mermaid
+flowchart LR
+  subgraph readOnly [Read-only]
+    D[diagnose]
+    R[report = diagnose + scan]
+    S[scan]
+  end
+  subgraph modify [Changes files]
+    A[apply UNIQUE only]
+    V[verify vs snapshot]
+    X[resolve DIFFERS interactive]
+  end
+  D --> S
+  S --> A
+  A --> V
+  S --> X
+```
+
+| Step | Command | Modifies disk? |
+|------|---------|----------------|
+| Health check | `diagnose` | No |
+| Full picture | `report` | No |
+| Preview merge | `scan` | No |
+| Move UNIQUE files | `apply` | Yes (copy/move UNIQUE only) |
+| Check regrowth | `verify` | No |
+| Fix name collisions | `resolve` | Yes (with backup) |
+
+## What the app does vs what you must fix
+
+```mermaid
+flowchart TB
+  subgraph app [CloudUnhideWatcher handles]
+    H[Clear local hidden flags]
+    W[Watch and re-clear pin paths]
+    T[Run diagnose / merge toolkit]
+  end
+  subgraph user [Operator / iCloud fixes]
+    M[Merge conflict folders across Macs]
+    I[iCloud sync / materialization issues]
+    F[FDA and correct install path]
+  end
+  H --> Visible[Files visible in Finder]
+  M --> Visible
+  I --> Visible
+```
+
+## Related
+
+- [Architecture](architecture.md)
+- [iCloud Tools](icloud-tools.md)
+- [Troubleshooting](troubleshooting.md)
+- [Getting Started](getting-started.md)

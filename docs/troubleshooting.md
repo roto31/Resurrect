@@ -1,5 +1,20 @@
 # Troubleshooting
 
+## Decision flow
+
+```mermaid
+flowchart TD
+  A[Files hidden or re-hiding] --> B[Run Diagnose or Full Report]
+  B --> C{Conflict folders?}
+  C -->|yes| D[Scan then Apply or Resolve]
+  C -->|no| E{FDA / path errors?}
+  E -->|yes| F[Fix FDA — see below]
+  E -->|no| G[Likely iCloud sync — app is mitigating symptoms only]
+  D --> H[Verify after 1–2 days]
+```
+
+See [Process Flows](process-flows.md) for full diagrams.
+
 ## Files keep re-hiding
 
 CloudUnhideWatcher clears local hidden flags; it does **not** fix upstream iCloud sync conflicts. If files re-hide within seconds, iCloud or another process is re-applying `UF_HIDDEN`.
@@ -8,12 +23,14 @@ Work through these steps in order:
 
 ### 1. Run diagnose (read-only)
 
-From the menu: **iCloud Tools → Run Diagnostic (read-only)**
+**Menu:** iCloud Tools → **Diagnose iCloud Health…** or **Full Report…**
 
-Or run the bundled script from Terminal (path inside the installed app):
+Or from Terminal:
 
 ```bash
-"/Applications/CloudUnhideWatcher.app/Contents/Resources/Scripts/diagnose_rehide.sh"
+TOOLKIT="/Applications/CloudUnhideWatcher.app/Contents/Resources/Scripts/icloud_conflict_toolkit.sh"
+bash "${TOOLKIT}" diagnose
+bash "${TOOLKIT}" report    # diagnose + scan
 ```
 
 The report checks install path, FDA/CloudDocs access, hidden watch roots, hidden files, conflict folders, and log contention. Output is saved under `~/Library/Logs/CloudUnhideWatcher/`.
@@ -31,15 +48,16 @@ These indicate multi-Mac iCloud Desktop & Documents conflicts. Use [iCloud Tools
 
 | Mode | Action |
 |------|--------|
-| **Dry run** | Lists UNIQUE / IDENTICAL / DIFFERS; moves nothing |
+| **Scan** | Lists UNIQUE / IDENTICAL / DIFFERS; moves nothing |
 | **Apply** | Moves UNIQUE files only; never overwrites live files |
 | **Verify** | Compares conflict folders to saved snapshot; detects regrowth |
+| **Resolve** | Interactive Terminal session for DIFFERS files |
 
-The merge helper **never deletes** and **never overwrites** existing live files. Run **Verify** again after a day or two; **REGROWN** means another Mac is still writing into the conflict copy — repeat on **each Mac** on the same iCloud account.
+The toolkit **never deletes** conflict folders automatically. **Apply** never overwrites existing live files. Run **Verify** again after a day or two; **REGROWN** means another Mac is still writing into the conflict copy — repeat on **each Mac** on the same iCloud account.
 
 ### 4. When to stop chasing app bugs
 
-If diagnose shows low contention but Finder still flickers, or merge reports many **DIFFERS** rows, treat it as an iCloud sync problem (multi-Mac conflicts, dataless placeholders, materialization failures) — not a CloudUnhideWatcher defect.
+If diagnose shows low contention but Finder still flickers, or scan reports many **DIFFERS** rows, treat it as an iCloud sync problem (multi-Mac conflicts, dataless placeholders, materialization failures) — not a CloudUnhideWatcher defect.
 
 ## Full Disk Access issues
 
@@ -66,6 +84,7 @@ The app rescans the full tree on coalesced FSEvents. Very large folders with fre
 
 ## Related
 
+- [Process Flows](process-flows.md)
 - [iCloud Tools](icloud-tools.md)
 - [Getting Started](getting-started.md)
 - [Operator Guide](operator-guide.md)

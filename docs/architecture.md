@@ -1,6 +1,30 @@
 # Architecture
 
-High-level design of **CloudUnhideWatcher** (consumer view — no source paths).
+High-level design of **CloudUnhideWatcher** (consumer view).
+
+## System context
+
+```mermaid
+flowchart TB
+  subgraph macOS [macOS]
+    Menu[Menu bar app]
+    Core[CloudUnhideCore library]
+    Menu --> Core
+  end
+  subgraph paths [Watched paths]
+    Desktop[iCloud Desktop]
+    Documents[iCloud Documents]
+  end
+  subgraph external [External]
+    iCloud[iCloud sync / fileproviderd]
+    Finder[Finder visibility]
+  end
+  Core --> Desktop
+  Core --> Documents
+  iCloud --> Desktop
+  iCloud --> Documents
+  Core --> Finder
+```
 
 ## Components
 
@@ -13,9 +37,9 @@ High-level design of **CloudUnhideWatcher** (consumer view — no source paths).
 | File logger | Optional append-only log at `~/Library/Logs/icloud-unhide-watcher.log` |
 | Menu bar UI | `NSStatusItem` + menu (no Dock icon) |
 | Login item | `SMAppService` launch-at-login (macOS 13+) |
-| iCloud Tools | Runs bundled shell scripts from app Resources |
+| iCloud Tools | Runs bundled **iCloud Conflict Toolkit** from app Resources |
 
-Core logic lives in a testable library target; the menu bar app is a thin AppKit shell.
+Core logic lives in a testable library; the menu bar app is a thin AppKit shell.
 
 ## Event flow
 
@@ -33,6 +57,18 @@ flowchart TD
 ```
 
 FSEvents fire on many change types, not only hidden-flag changes. The app rescans the watched trees rather than interpreting individual event flags — simple and robust for iCloud sync bursts.
+
+## Dual-clear mechanism
+
+```mermaid
+sequenceDiagram
+  participant R as Restorer
+  participant F as Finder metadata
+  participant B as BSD flags
+  R->>F: setResourceValues isHidden=false
+  R->>B: chflags nouchg,nohidden
+  Note over R,B: Both layers cleared — iCloud may still re-hide
+```
 
 ## Watch paths
 
@@ -61,5 +97,6 @@ Restored paths must be:
 
 ## Related
 
+- [Process Flows](process-flows.md)
 - [Project Overview](project-overview.md)
 - [Operator Guide](operator-guide.md)

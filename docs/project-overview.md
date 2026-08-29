@@ -6,6 +6,16 @@
 
 The app watches those folders and clears hidden flags on eligible user content so Finder shows files again.
 
+```mermaid
+flowchart LR
+  Problem[iCloud marks files hidden] --> App[CloudUnhideWatcher]
+  App --> Mitigate[Clear hidden flags continuously]
+  Mitigate --> Finder[Files visible in Finder]
+  Problem --> RootCause[Sync conflicts / multi-Mac Desktop]
+  RootCause --> Tools[iCloud Tools diagnose + merge]
+  Tools --> Finder
+```
+
 ## What it is not
 
 - Not a replacement for fixing iCloud sync (conflict folders, multi-Mac Desktop & Documents, stuck materialization queues)
@@ -26,7 +36,7 @@ The app watches those folders and clears hidden flags on eligible user content s
 | Auto-restore | Clears `isHidden` and `UF_HIDDEN` on eligible paths |
 | Pin watchdog | Re-clears paths iCloud keeps re-hiding (up to 120s) |
 | Menu bar control | Status, scan, pause, settings, quit |
-| iCloud Tools | Bundled diagnose and conflict-merge scripts |
+| iCloud Tools | Bundled iCloud Conflict Toolkit (diagnose, scan, apply, verify, resolve) |
 | Launch at login | `SMAppService` on macOS 13+ |
 
 ## Requirements
@@ -38,6 +48,7 @@ The app watches those folders and clears hidden flags on eligible user content s
 
 ## Related
 
+- [Process Flows](process-flows.md)
 - [Architecture](architecture.md)
 - [Getting Started](getting-started.md)
 - [Troubleshooting](troubleshooting.md)

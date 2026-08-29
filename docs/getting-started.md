@@ -10,6 +10,17 @@ Install to `/Applications/CloudUnhideWatcher.app` — not from the DMG directly 
 
 ## Full Disk Access
 
+```mermaid
+flowchart TD
+  A[Launch app] --> B{Access to iCloud Desktop/Documents?}
+  B -->|no| C[Menu: Needs FDA]
+  C --> D[System Settings → Full Disk Access]
+  D --> E[Enable CloudUnhideWatcher]
+  E --> F[Relaunch app]
+  B -->|yes| G[Monitoring starts]
+  F --> G
+```
+
 CloudUnhideWatcher needs access to iCloud Drive Desktop & Documents under your user library. On many Macs this requires **Full Disk Access**.
 
 1. Click the menu bar eye icon → **Enable CloudUnhideWatcher in Full Disk Access…**
@@ -49,5 +60,6 @@ In **Settings → General**, enable **Launch at Login** so the watcher starts af
 ## Next steps
 
 - [Operator Guide](operator-guide.md) — day-to-day use
+- [Process Flows](process-flows.md) — diagrams of restore and diagnose flows
 - [Troubleshooting](troubleshooting.md) — if files keep re-hiding
 - [iCloud Tools](icloud-tools.md) — diagnose and merge conflict folders

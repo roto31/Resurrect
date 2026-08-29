@@ -10,8 +10,14 @@ User documentation for the **CloudUnhideWatcher** macOS application.
 |------|-------------|
 | [Getting Started](getting-started.md) | Install DMG, FDA, first launch |
 | [Operator Guide](operator-guide.md) | Menu bar, settings, launch-at-login |
-| [iCloud Tools](icloud-tools.md) | Bundled diagnose and conflict-merge scripts |
+| [iCloud Tools](icloud-tools.md) | iCloud Conflict Toolkit (diagnose, scan, apply, verify, resolve) |
 | [Troubleshooting](troubleshooting.md) | Re-hide loops, conflict folders, FDA |
+
+## Diagrams
+
+| Page | Description |
+|------|-------------|
+| [Process Flows](process-flows.md) | Restore pipeline, pin watchdog, FDA, diagnose & merge flows |
 
 ## Reference
 

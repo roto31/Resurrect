@@ -11,6 +11,25 @@ CloudUnhideWatcher bundles the **iCloud Conflict Toolkit** inside the app:
 
 Run commands from the menu (**iCloud Tools**) or from Terminal. Non-interactive reports are written to `~/Library/Logs/CloudUnhideWatcher/`.
 
+## Workflow diagram
+
+```mermaid
+flowchart TD
+  Start[Problem: hidden files or conflict folders] --> Diag[diagnose or report]
+  Diag --> CF{Conflict folders?}
+  CF -->|no| Logs[Review diagnose output + app log]
+  CF -->|yes| Scan[scan dry run]
+  Scan --> U{UNIQUE files?}
+  U -->|yes| Apply[apply — move UNIQUE only]
+  U -->|no| D{DIFFERS files?}
+  D -->|yes| Res[resolve interactive]
+  D -->|no| Wait[IDENTICAL only — optional manual cleanup]
+  Apply --> Ver[verify days later]
+  Ver --> OK{REGROWN?}
+  OK -->|yes| Multi[Repeat on other Macs]
+  OK -->|no| Done[Done]
+```
+
 ## Toolkit commands
 
 | Command | Menu item | Description |
@@ -30,6 +49,18 @@ Run commands from the menu (**iCloud Tools**) or from Terminal. Non-interactive 
 - `resolve` backs up the live copy before any overwrite.
 
 Apply/verify snapshots are stored under `~/.icloud_conflict_toolkit_state/`.
+
+## What diagnose checks
+
+```mermaid
+flowchart LR
+  D[diagnose] --> I[Install path]
+  D --> P[FDA / CloudDocs access]
+  D --> R[Hidden watch roots]
+  D --> F[Hidden files in tree]
+  D --> C[Conflict folder list]
+  D --> L[Session log contention]
+```
 
 ## Conflict folder categories
 
@@ -72,5 +103,6 @@ bash "${SCRIPTS}/merge_icloud_conflicts.sh" --verify  # → verify
 
 ## Related
 
+- [Process Flows](process-flows.md)
 - [Troubleshooting](troubleshooting.md)
 - [Operator Guide](operator-guide.md)
